@@ -1,0 +1,130 @@
+.room {
+    background-color: var(--color-white);
+    border: var(--border-grey-spanish-light);
+    display: flex;
+    gap: 1.6rem;
+    padding: 1.6rem;
+    text-align: left;
+}
+
+.room__image-container{
+    align-self: start;
+    aspect-ratio: 1.5 / 1;
+    max-width: 25.7rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.room__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.room__image-icon-container{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-black-low-opacity);
+    padding: .5rem .8rem 0 .8rem;
+    margin: .8rem;
+}
+
+.room__header {
+    color: var(--color-ming);
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.room__specifications-item{
+    font-size: 1.36rem;
+    line-height: 1.3;
+}
+
+.room__specifications-item--availablity {
+    color: var(--color-red);
+    margin-right: 1rem
+}
+
+.room__specifications-item--with-separator::after {
+    content: "*";
+    margin: 0 1rem;
+}
+
+.room__details-list {
+    padding-left: 2rem;
+}
+
+.room__details-list-item{
+    line-height: 1.8;
+}
+
+.room__link {
+    color: var(--color-lapis-lazuli);
+    border-bottom: var(--border-lapis-lazuli);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.room__link:hover{
+    border-bottom-width: 2px;
+}
+
+.room__additional-info {
+    display: flex;
+    gap: 1.2rem;
+    border-top: var(--border-grey-spanish);
+    margin-top: 1.6rem;
+    padding-top: 1.6rem;
+}
+
+.room__additional-description{
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+.room__additional--right{
+    min-width: 13.3rem;
+}
+
+.room__additional-description:first-of-type{
+    margin-top: 1rem;
+}
+
+.room__additional-description-text{
+    padding-left: 1rem;
+}
+
+.room__additional-rate-description {
+    text-wrap: wrap;
+}
+
+.room__price {
+    font-size: 2.08rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.room__price-description{
+    font-size: 1.36rem;
+    line-height: 1.3;
+}
+
+.room__price-description--fees {
+    color: var( --color-grey-granit);
+}
+
+.room__button {
+    background-color: var(--color-lapis-lazuli);
+    border: var(--border-lapis-lazuli);
+    color: var(--color-white);
+    margin-top: 1.6rem;
+    width: 100%;
+}
+
+.room__button:hover {
+    background-color: var(--color-white);
+    color: var(--color-lapis-lazuli);
+}
