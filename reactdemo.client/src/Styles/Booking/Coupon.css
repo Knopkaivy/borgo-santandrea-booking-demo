@@ -1,0 +1,16 @@
+.coupon{
+    display: flex;
+    justify-content: end;
+    padding: .8rem 2rem;
+}
+
+    .coupon svg {
+        fill: var(--color-lapis-lazuli);
+        cursor: pointer;
+    }
+
+.coupon__title {
+    color: var(--color-lapis-lazuli);
+    font-weight: 700;
+    cursor: pointer;
+}

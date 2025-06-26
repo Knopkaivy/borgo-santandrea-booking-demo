@@ -1,4 +1,5 @@
 import Rooms from './Components/Rooms';
+import BookingSection from './Components/Booking/BookingSection';
 import './Styles/App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     return (
         <main className="app__main" >
             <div className="app__content--left" >
+                <BookingSection/>
                 <Rooms/>
             </div>
             <div className="app__content--right" ></div>

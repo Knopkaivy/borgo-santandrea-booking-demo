@@ -1,0 +1,11 @@
+.booking {
+    background-color: var(--color-white);
+    border: var(--border-grey-spanish);
+    display: flex;
+    flex-direction: column;
+}
+
+.booking__picers-container{
+    display: flex;
+    border-bottom: var(--border-grey-spanish);
+}

@@ -18,4 +18,7 @@ th, td {
 
 .app__content--left{
     flex: 0 0 67%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
 }
