@@ -5,7 +5,11 @@
     flex-direction: column;
 }
 
-.booking__picers-container{
+.booking__pickers-container{
     display: flex;
     border-bottom: var(--border-grey-spanish);
+}
+
+.booking__content-container{
+    padding: 0 2rem;
 }

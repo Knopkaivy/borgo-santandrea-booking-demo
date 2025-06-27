@@ -1,0 +1,20 @@
+import React, { useState } from "react";
+import '../../Styles/Booking/CalendarContainer.css';
+
+
+
+function CalendarContainer() {
+    const [selectedDates, setSelectedDates] = useState([]);
+  return (
+      <div className='calendar-container' >
+          <p className='calendar-container__disclaimer' >We're showing the best available price per room for 1 night, based on the number of guests.</p>
+          <p className='calendar-container__warning' ><span className='bold' >Warning</span> goes here</p>
+          <div className='calendar-container__buttons-container' >
+              <button className="calendar-container__button--transparent" >Cancel</button>
+              <button className="calendar-container__button--blue" >SEARCH</button>
+          </div>
+      </div>
+  );
+}
+
+export default CalendarContainer;

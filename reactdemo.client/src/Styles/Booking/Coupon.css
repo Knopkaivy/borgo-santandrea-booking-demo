@@ -1,7 +1,7 @@
 .coupon{
     display: flex;
     justify-content: end;
-    padding: .8rem 2rem;
+    padding: .8rem 0;
 }
 
     .coupon svg {

@@ -1,6 +1,7 @@
 :root {
     --color-black: #000;
     --color-black-low-opacity: #000000bf;
+    --color-golden-brown: #925f0c;
     --color-grey-granit: #666666;
     --color-grey-light: #faf9f8;
     --color-grey-spanish-light: #99999945;
@@ -60,6 +61,12 @@ button {
   cursor: pointer;
 }
 
+a:focus,
+button:focus {
+    outline-color: var(--color-red);
+    outline-offset: 4px;
+}
+
 
 p{
     margin: 0;
@@ -71,4 +78,8 @@ p{
 
 .required {
     color: var(--color-red);
+}
+
+.bold{
+    font-weight: 700;
 }
