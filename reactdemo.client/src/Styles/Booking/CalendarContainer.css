@@ -52,3 +52,8 @@
 .calendar-container__button--transparent:active {
     text-decoration: underline;
 }
+
+.calendar-container .react-calendar {
+    border: none;
+    width: 100%;
+}
