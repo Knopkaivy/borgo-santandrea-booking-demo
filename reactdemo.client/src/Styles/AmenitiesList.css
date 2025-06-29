@@ -1,0 +1,8 @@
+.amenities-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background-color: var(--color-white);
+    border: var(--border-grey-spanish);
+    padding: 1rem;
+}

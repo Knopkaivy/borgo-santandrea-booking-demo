@@ -1,0 +1,13 @@
+.amenity{
+    display: flex;
+    gap: 1rem;
+}
+
+.amenity__icon{
+    min-width: 4rem;
+}
+
+.amenity__description {
+    text-align: start;
+    align-self: center;
+}
