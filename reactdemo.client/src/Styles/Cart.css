@@ -1,0 +1,45 @@
+.cart {
+    background-color: var(--color-white);
+    border: var(--border-grey-spanish);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.6rem;
+}
+
+.cart__items{
+    color: var(--color-lapis-lazuli);
+    font-size: 3rem;
+}
+
+.cart__total{
+    font-size: 1.92rem;
+    font-weight: 700;
+    text-align: start;
+}
+
+.cart__button{
+    width: 100%;
+    color: var(--color-white);
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+}
+
+.cart-button--add-room {
+    background-color: var(--color-moonstone);
+    border: 1px solid var(--color-moonstone);
+}
+
+.cart-button--checkout {
+    background-color: var(--color-lapis-lazuli);
+    border: var(--border-lapis-lazuli);
+}
+
+.cart__button:hover,
+.cart__button:focus,
+.cart__button:active {
+    background-color: var(--color-white);
+    color: var(--color-lapis-lazuli);
+    border: var(--border-lapis-lazuli);
+}

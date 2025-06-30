@@ -1,5 +1,6 @@
 import AmenititesList from './Components/AmenititesList';
 import BookingSection from './Components/Booking/BookingSection';
+import Cart from './Components/Cart';
 import Rooms from './Components/Rooms';
 import './Styles/App.css';
 
@@ -13,6 +14,7 @@ function App() {
                 <Rooms/>
             </div>
             <div className="app__content--right" >
+                <Cart/>
                 <AmenititesList/>
             </div>
         </main>

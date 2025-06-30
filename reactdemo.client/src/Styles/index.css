@@ -7,6 +7,7 @@
     --color-grey-spanish-light: #99999945;
     --color-grey-spanish: #999999;
     --color-lapis-lazuli: #236192;
+    --color-moonstone: #3399cc;
     --color-ming: #437181;
     --color-red: #ac0000;
     --color-white: #FFF;
@@ -59,6 +60,7 @@ button {
   font-weight: 400;
   font-family: inherit;
   cursor: pointer;
+  transition: all .2s ease;
 }
 
 a:focus,
