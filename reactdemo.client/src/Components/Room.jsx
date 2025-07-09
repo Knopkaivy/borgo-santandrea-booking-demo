@@ -5,7 +5,7 @@ import '../Styles/Room.css';
 
 const Room = ({ room, imgSrc }) => {
 
-    const detailsList = room.roomDescription.split(".").map((descriptionItem, i) => <li className="room__details-list-item" key={i} >{descriptionItem}</li>)
+    const detailsList = room.description.split(".").map((descriptionItem, i) => <li className="room__details-list-item" key={i} >{descriptionItem}</li>)
 
     return (
         <div className="room" >
@@ -18,7 +18,7 @@ const Room = ({ room, imgSrc }) => {
             <div className="room__content-container">
                 <h2 className="room__header" >{room.title}</h2>
                 <div className="room__specifications" >
-                    <span className={`room__specifications-item room__specifications-item--availablity ${room.roomsAvailable > 3 ? "hide" : ""}`}>Only {room.roomsAvailable} room{room.roomsAvailable > 1 ? "s" : ""} left</span>
+                    {/*<span className={`room__specifications-item room__specifications-item--availablity ${room.roomsAvailable > 3 ? "hide" : ""}`}>Only {room.roomsAvailable} room{room.roomsAvailable > 1 ? "s" : ""} left</span>*/}
                     <span className="room__specifications-item room__specifications-item--with-separator">{room.bedsDescription}</span>
                     <span className="room__specifications-item room__specifications-item--with-separator">Sleeps {room.sleepersCapacity}</span>
                     <span className="room__specifications-item">{room.roomSize}</span>
@@ -46,7 +46,7 @@ const Room = ({ room, imgSrc }) => {
                         <p className="room__additional-rate-description" >Full breakfast, Wi-Fi, shuttle service, private beach, private parking, swimming pool</p>
                     </div>
                     <div className="room__additional--right">
-                        <p className="room__price" ><span>$</span>{Number.parseFloat(room.price).toFixed(2)}</p>
+                        <p className="room__price" ><span>$</span>{Number.parseFloat(room.basePrice).toFixed(2)}</p>
                         <p className="room__price-description" >Per Night</p>
                         <p className="room__price-description room__price-description--fees">Excluding taxes and fees</p>
                         <button className="room__button" >BOOK NOW</button>

@@ -1,15 +1,13 @@
-﻿namespace ReactDemo.Server.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ReactDemo.Server.Models
 {
     public class Room
     {
+        [Key]
         public int Id { get; set; }
-        public string Title { get; set; }
-        public int ImageId {  get; set; }
-        public string RoomDescription { get; set; }
-        public int RoomsAvailable { get; set; }
-        public string BedsDescription { get; set; }
-        public int SleepersCapacity { get; set; }
-        public string RoomSize { get; set; }
-        public decimal Price { get; set; }
+        public RoomType? RoomType { get; set; }
+        public int RoomTypeId { get; set; }
+        public int RoomNumber { get; set; }
     }
 }
