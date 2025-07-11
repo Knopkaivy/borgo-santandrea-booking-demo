@@ -5,10 +5,12 @@ import '../Styles/Rooms.css';
 
 const Rooms = () => {
 
+    const today = new Date();
+    const maxDate = new Date(new Date().setDate(today.getDate() + 180));
     const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
-        fetch(`room`)
+        fetch(`room/${today.toISOString().split('T')[0]}/${maxDate.toISOString().split('T')[0] }`)
             .then(results => {
                 const res = results.json();
                 return res;
