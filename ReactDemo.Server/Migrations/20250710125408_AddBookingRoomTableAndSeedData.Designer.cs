@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReactDemo.Server.Database;
 
@@ -11,9 +12,11 @@ using ReactDemo.Server.Database;
 namespace ReactDemo.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250710125408_AddBookingRoomTableAndSeedData")]
+    partial class AddBookingRoomTableAndSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,33 +81,6 @@ namespace ReactDemo.Server.Migrations
                             GuestId = 3,
                             NumberAdults = 1,
                             NumberChildren = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CheckInDate = new DateOnly(2025, 9, 1),
-                            CheckOutDate = new DateOnly(2025, 9, 10),
-                            GuestId = 1,
-                            NumberAdults = 2,
-                            NumberChildren = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CheckInDate = new DateOnly(2025, 9, 15),
-                            CheckOutDate = new DateOnly(2025, 9, 16),
-                            GuestId = 4,
-                            NumberAdults = 1,
-                            NumberChildren = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CheckInDate = new DateOnly(2025, 9, 15),
-                            CheckOutDate = new DateOnly(2025, 9, 16),
-                            GuestId = 4,
-                            NumberAdults = 1,
-                            NumberChildren = 1
                         });
                 });
 
@@ -152,32 +128,8 @@ namespace ReactDemo.Server.Migrations
                         new
                         {
                             Id = 4,
-                            BookingId = 4,
-                            RoomId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
                             BookingId = 3,
-                            RoomId = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BookingId = 5,
-                            RoomId = 8
-                        },
-                        new
-                        {
-                            Id = 7,
-                            BookingId = 6,
-                            RoomId = 13
-                        },
-                        new
-                        {
-                            Id = 8,
-                            BookingId = 6,
-                            RoomId = 16
+                            RoomId = 27
                         });
                 });
 

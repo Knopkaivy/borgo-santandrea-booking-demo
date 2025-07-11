@@ -127,11 +127,39 @@ namespace ReactDemo.Server.Database
                 new Room { Id = 26, RoomTypeId = 9, RoomNumber = 902},
                 new Room { Id = 27, RoomTypeId = 9, RoomNumber = 903}
                 );
+            builder.Entity<Guest>().HasData(
+                new Guest { Id = 1, FirstName = "Jess", LastName = "Day", Email = "jess@test.com"},
+                new Guest { Id = 2, FirstName = "Nick", LastName = "Miller", Email = "nick@test.com"},
+                new Guest { Id = 3, FirstName = "Schmidt", Email = "schmidt@test.com"},
+                new Guest { Id = 4, FirstName = "Cece", LastName = "Parekh", Email = "cece@test.com"},
+                new Guest { Id = 5, FirstName = "Winston", LastName = "Bishop", Email = "winston@test.com"}
+                );
+            builder.Entity<Booking>().HasData(
+                new Booking { Id = 1, GuestId = 1, CheckInDate = new DateOnly(2025, 7, 20), CheckOutDate = new DateOnly(2025, 7, 25), NumberAdults = 2},
+                new Booking { Id = 2, GuestId = 2, CheckInDate = new DateOnly(2025, 7, 28), CheckOutDate = new DateOnly(2025, 7, 31), NumberAdults = 2, NumberChildren = 1},
+                new Booking { Id = 3, GuestId = 3, CheckInDate = new DateOnly(2025, 8, 1), CheckOutDate = new DateOnly(2025, 8, 31), NumberAdults = 1, NumberChildren = 1},
+                new Booking { Id = 4, GuestId = 1, CheckInDate = new DateOnly(2025, 9, 1), CheckOutDate = new DateOnly(2025, 9, 10), NumberAdults = 2},
+                new Booking { Id = 5, GuestId = 4, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1},
+                new Booking { Id = 6, GuestId = 4, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1}
+                );
+            builder.Entity<BookingRoom>().HasData(
+                new BookingRoom { Id = 1, BookingId =  1, RoomId = 1 },
+                new BookingRoom { Id = 2, BookingId =  2, RoomId = 9 },
+                new BookingRoom { Id = 3, BookingId =  2, RoomId = 11 },
+                new BookingRoom { Id = 4, BookingId =  4, RoomId = 2 },
+                new BookingRoom { Id = 5, BookingId =  3, RoomId = 3 },
+                new BookingRoom { Id = 6, BookingId =  5, RoomId = 8 },
+                new BookingRoom { Id = 7, BookingId =  6, RoomId = 13 },
+                new BookingRoom { Id = 8, BookingId =  6, RoomId = 16 }
+                );
         }
 
 
         public DbSet<RoomType> RoomType { get; set; }
         public DbSet<Room> Room { get; set; }
+        public DbSet<Guest> Guest { get; set; }
+        public DbSet<Booking> Booking { get; set; }
+        public DbSet<BookingRoom> BookingRoom { get; set; }
 
     }
 }

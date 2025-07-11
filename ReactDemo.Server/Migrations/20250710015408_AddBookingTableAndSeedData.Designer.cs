@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReactDemo.Server.Database;
 
@@ -11,9 +12,11 @@ using ReactDemo.Server.Database;
 namespace ReactDemo.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250710015408_AddBookingTableAndSeedData")]
+    partial class AddBookingTableAndSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,106 +81,6 @@ namespace ReactDemo.Server.Migrations
                             GuestId = 3,
                             NumberAdults = 1,
                             NumberChildren = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CheckInDate = new DateOnly(2025, 9, 1),
-                            CheckOutDate = new DateOnly(2025, 9, 10),
-                            GuestId = 1,
-                            NumberAdults = 2,
-                            NumberChildren = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CheckInDate = new DateOnly(2025, 9, 15),
-                            CheckOutDate = new DateOnly(2025, 9, 16),
-                            GuestId = 4,
-                            NumberAdults = 1,
-                            NumberChildren = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CheckInDate = new DateOnly(2025, 9, 15),
-                            CheckOutDate = new DateOnly(2025, 9, 16),
-                            GuestId = 4,
-                            NumberAdults = 1,
-                            NumberChildren = 1
-                        });
-                });
-
-            modelBuilder.Entity("ReactDemo.Server.Models.BookingRoom", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BookingId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookingId");
-
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("BookingRoom");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BookingId = 1,
-                            RoomId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BookingId = 2,
-                            RoomId = 9
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BookingId = 2,
-                            RoomId = 11
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BookingId = 4,
-                            RoomId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BookingId = 3,
-                            RoomId = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BookingId = 5,
-                            RoomId = 8
-                        },
-                        new
-                        {
-                            Id = 7,
-                            BookingId = 6,
-                            RoomId = 13
-                        },
-                        new
-                        {
-                            Id = 8,
-                            BookingId = 6,
-                            RoomId = 16
                         });
                 });
 
@@ -577,25 +480,6 @@ namespace ReactDemo.Server.Migrations
                         .IsRequired();
 
                     b.Navigation("Guest");
-                });
-
-            modelBuilder.Entity("ReactDemo.Server.Models.BookingRoom", b =>
-                {
-                    b.HasOne("ReactDemo.Server.Models.Booking", "Booking")
-                        .WithMany()
-                        .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ReactDemo.Server.Models.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Booking");
-
-                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("ReactDemo.Server.Models.Room", b =>
