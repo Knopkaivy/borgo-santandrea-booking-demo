@@ -1,24 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import Room from './Room';
+import NoRoomsWarning from './NoRoomsWarning';
 import RoomsImagesArray from './RoomsImages';
 import '../Styles/Rooms.css';
 
-const Rooms = () => {
-
-    const today = new Date();
-    const maxDate = new Date(new Date().setDate(today.getDate() + 180));
-    const [rooms, setRooms] = useState([]);
-
-    useEffect(() => {
-        fetch(`room/${today.toISOString().split('T')[0]}/${maxDate.toISOString().split('T')[0] }`)
-            .then(results => {
-                const res = results.json();
-                return res;
-            })
-            .then(data => {
-                setRooms(data);
-            })
-    },[])
+const Rooms = ({ rooms, numberGuests }) => {
 
     return (
         <section className="rooms">
@@ -27,7 +12,7 @@ const Rooms = () => {
                 Filters go here
             </div>
             {
-                (rooms !== null) ? rooms.map(room => <Room key={room.id} room={room} imgSrc={RoomsImagesArray.find(img => img.id === room.imageId)?.image }  />) : <div>Loading data...</div>
+                (rooms.length > 0) ? rooms.map(room => <Room key={room.id} room={room} imgSrc={RoomsImagesArray.find(img => img.id === room.imageId)?.image} />) : <NoRoomsWarning numberGuests={numberGuests} />
             }
         </section>
     );

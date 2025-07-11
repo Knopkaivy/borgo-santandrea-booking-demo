@@ -1,11 +1,10 @@
-import React, { useState } from "react";
 import Calendar from 'react-calendar';
 import '../../Styles/Booking/CalendarContainer.css';
 import 'react-calendar/dist/Calendar.css';
 
 
 
-function CalendarContainer({ minDate, maxDate, startDate, endDate, handleDateChange}) {
+function CalendarContainer({ minDate, maxDate, startDate, endDate, handleDateChange, handleClickSearch }) {
 
   return (
       <div className='calendar-container' >
@@ -23,7 +22,7 @@ function CalendarContainer({ minDate, maxDate, startDate, endDate, handleDateCha
           <p className='calendar-container__warning' ><span className='bold' >Warning</span> goes here</p>
           <div className='calendar-container__buttons-container' >
               <button className="calendar-container__button--transparent" >Cancel</button>
-              <button className="calendar-container__button--blue" >SEARCH</button>
+              <button className="calendar-container__button--blue" onClick={handleClickSearch } >SEARCH</button>
           </div>
       </div>
   );

@@ -1,0 +1,13 @@
+.no-rooms-warning {
+    background-color: var(--color-antique-white);
+    border: 2px solid var(--color-golden-brown);
+    color: var(--color-golden-brown);
+    text-align: start;
+    width: 100%;
+    padding: 2rem;
+}
+
+.no-rooms-warning__description{
+    text-transform: uppercase;
+    font-weight: 700;
+}

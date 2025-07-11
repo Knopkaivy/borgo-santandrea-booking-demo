@@ -5,10 +5,8 @@ import PersonIcon from '../Icons/PersonIcon';
 import CloseIcon from '../Icons/CloseIcon';
 import '../../Styles/Booking/GuestsPicker.css';
 
-function GuestsPicker() {
+function GuestsPicker({ adults, children, handleGuestsUpdate }) {
     const [isActive, setIsActive] = useState(false);
-    const [adults, setAdults] = useState(2);
-    const [children, setChildren] = useState(0);
     const [adultsCounter, setAdultsCounter] = useState(adults);
     const [childrenCounter, setChildrenCounter] = useState(children);
     const [childAgeArray, setChildAgeArray] = useState([]);
@@ -34,9 +32,8 @@ function GuestsPicker() {
         setIsActive(false);
     }
 
-    const handleGuestsUpdate = () => {
-        setAdults(adultsCounter);
-        setChildren(childrenCounter);
+    const handlePickerUpdate = () => {
+        handleGuestsUpdate(adultsCounter, childrenCounter);
         closePicker();
     }
 
@@ -64,14 +61,14 @@ function GuestsPicker() {
               </div>
           </div>
           <div className={`guests-picker__interaction-container ${isActive ? '' : 'hide'}`} >
-              <button className="guests-picker__button--close" onClick={handleGuestsUpdate}  ><CloseIcon/></button>
+              <button className="guests-picker__button--close" onClick={handlePickerUpdate}  ><CloseIcon/></button>
               <div className="guests-picker__interaction-title">
                     GUESTS
               </div>
               <GuestsCounter type='adults' count={adultsCounter} maxNum='19' handleCounterUpdate={handleCounterUpdate} />
               <GuestsCounter type='children' count={childrenCounter} maxNum='18' handleCounterUpdate={handleCounterUpdate} />
               {childAgeArray.map(i => <ChildAgeSelector key={i} index={i} />)}
-              <button className="guests-picker__button--done" onClick={handleGuestsUpdate} >DONE</button>
+              <button className="guests-picker__button--done" onClick={handlePickerUpdate} >DONE</button>
           </div>
       </div>
   );

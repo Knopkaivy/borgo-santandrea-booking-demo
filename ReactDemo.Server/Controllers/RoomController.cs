@@ -16,9 +16,9 @@ namespace ReactDemo.Server.Controllers
             _context = context;
         }
 
-        //GET room/startDateString/endDateString
-        [HttpGet("{startDateString}/{endDateString}")]
-        public async Task<List<RoomViewModel>> Get(string startDateString, string endDateString)
+        //GET room/startDateString/endDateString/numberGuests
+        [HttpGet("{startDateString}/{endDateString}/{numberGuests}")]
+        public async Task<List<RoomViewModel>> Get(string startDateString, string endDateString, int numberGuests)
         {
             DateOnly startDate = DateOnly.Parse(startDateString);
             DateOnly endDate = DateOnly.Parse(endDateString);
@@ -38,7 +38,7 @@ namespace ReactDemo.Server.Controllers
             foreach ( var roomType in roomTypesAll)
             {
                 var availableRoom = roomTypesAvailable.FirstOrDefault(rt => rt.id == roomType.Id);
-                if (availableRoom != null) {
+                if (availableRoom != null && roomType.SleepersCapacity >= numberGuests) {
                     roomTypes.Add(new RoomViewModel
                     {
                         Id = roomType.Id,
