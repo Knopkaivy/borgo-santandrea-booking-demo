@@ -1,11 +1,11 @@
 import CalendarIcon from '../Icons/CalendarIcon';
 import '../../Styles/Booking/DatePicker.css';
 
-function DatePicker({ date, type }) {
+function DatePicker({ date, type, handleShowCalendar }) {
     const title = type === 'check-in' ? 'Check-in' : 'Check-out';
 
   return (
-      <div className="date-picker" >
+      <div className="date-picker" onClick={handleShowCalendar} >
           <div className="date-picker__icon-container">
             <CalendarIcon/>
           </div>
