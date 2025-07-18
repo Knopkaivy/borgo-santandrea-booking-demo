@@ -3,7 +3,7 @@ import NoRoomsWarning from './NoRoomsWarning';
 import RoomsImagesArray from './RoomsImages';
 import '../Styles/Rooms.css';
 
-const Rooms = ({ rooms, numberGuests }) => {
+const Rooms = ({ rooms, numberGuests, handleBookRoom }) => {
 
     return (
         <section className="rooms">
@@ -12,7 +12,7 @@ const Rooms = ({ rooms, numberGuests }) => {
                 Filters go here
             </div>
             {
-                (rooms.length > 0) ? rooms.map(room => <Room key={room.id} room={room} imgSrc={RoomsImagesArray.find(img => img.id === room.imageId)?.image} />) : <NoRoomsWarning numberGuests={numberGuests} />
+                (rooms.length > 0) ? rooms.map(room => <Room key={room.id} room={room} handleBookRoom={handleBookRoom} imgSrc={RoomsImagesArray.find(img => img.id === room.imageId)?.image} />) : <NoRoomsWarning numberGuests={numberGuests} />
             }
         </section>
     );

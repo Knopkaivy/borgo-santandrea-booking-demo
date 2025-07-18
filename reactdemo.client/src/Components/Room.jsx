@@ -3,9 +3,12 @@ import CoffeeIcon from './Icons/CoffeeIcon';
 import ImagesIcon from './Icons/ImagesIcon';
 import '../Styles/Room.css';
 
-const Room = ({ room, imgSrc }) => {
+const Room = ({ room, handleBookRoom, imgSrc }) => {
 
     const detailsList = room.roomDescription.split(".").map((descriptionItem, i) => <li className="room__details-list-item" key={i} >{descriptionItem}</li>)
+    const handleBookNowClick = () => {
+        handleBookRoom(room.price, room.title);
+    }
 
     return (
         <div className="room" >
@@ -49,7 +52,7 @@ const Room = ({ room, imgSrc }) => {
                         <p className="room__price" ><span>$</span>{Number.parseFloat(room.price).toFixed(2)}</p>
                         <p className="room__price-description" >Per Night</p>
                         <p className="room__price-description room__price-description--fees">Excluding taxes and fees</p>
-                        <button className="room__button" >BOOK NOW</button>
+                        <button className="room__button" onClick={handleBookNowClick} >BOOK NOW</button>
                     </div>
                 </div>
             </div>
