@@ -46,6 +46,7 @@ html, body{
 body {
   background-color: var(--color-grey-light);
   font-size: 1.6rem;
+  position: relative;
 }
 
 h1 {

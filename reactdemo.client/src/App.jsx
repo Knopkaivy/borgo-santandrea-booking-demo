@@ -3,6 +3,7 @@ import AmenititesList from './Components/AmenititesList';
 import BookingSection from './Components/Booking/BookingSection';
 import Cart from './Components/Cart/Cart';
 import Rooms from './Components/Rooms';
+import Checkout from "./Components/Checkout/Checkout";
 import './Styles/App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     const [children, setChildren] = useState(0);
     const [cartItems, setCartItems] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
+    const [isCheckOut, setIsCheckOut] = useState(false);
 
     const getRooms = (start, end) => {
         const startDateString = start.toISOString().split('T')[0];
@@ -30,6 +32,10 @@ function App() {
             .then(data => {
                 setRooms(data);
             })
+    }
+
+    const postBooking = () => {
+
     }
 
     useEffect(() => {
@@ -81,14 +87,27 @@ function App() {
         setCartTotal(calculateCartTotal(newCartItems));
     }
 
+    const handleShowCheckOut = () => {
+        setIsCheckOut(true);
+    }
+
+    const handleHideCheckOut = () => {
+        setIsCheckOut(false);
+    }
+
+    const handlePostBooking = () => {
+
+    }
+
     return (
         <main className="app__main" >
+            <Checkout cartItems={cartItems} cartTotal={cartTotal} handleRemoveRoom={handleRemoveRoom} tax={tax} isCheckOut={isCheckOut} handleShowCheckOut={handleShowCheckOut} handleHideCheckOut={handleHideCheckOut} />
             <div className="app__content--left" >
                 <BookingSection startDate={startDate} endDate={endDate} maxDate={maxDate} adults={adults} children={children} handleDateChange={handleDateChange} handleClickSearch={handleClickSearch} handleGuestsUpdate={handleGuestsUpdate } />
                 <Rooms rooms={rooms} numberGuests={adults + children} handleBookRoom={handleBookRoom} />
             </div>
             <div className="app__content--right" >
-                <Cart cartItems={cartItems} cartTotal={cartTotal} handleRemoveRoom={handleRemoveRoom} tax={tax} />
+                <Cart cartItems={cartItems} cartTotal={cartTotal} handleRemoveRoom={handleRemoveRoom} tax={tax} handleShowCheckOut={handleShowCheckOut} />
                 <AmenititesList/>
             </div>
         </main>

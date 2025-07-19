@@ -1,6 +1,6 @@
 import CartItem from './CartItem';
 import '../../Styles/Cart/Cart.css';
-function Cart({ cartItems, cartTotal,tax, handleRemoveRoom }) {
+function Cart({ cartItems, cartTotal, tax, handleRemoveRoom, handleShowCheckOut }) {
   return (
       <div className='cart' >
           <div className='cart__items-count' >Your Cart: {cartItems.length} Item{cartItems.length === 1 ? '' : 's'}</div>
@@ -14,7 +14,7 @@ function Cart({ cartItems, cartTotal,tax, handleRemoveRoom }) {
                   })}
               </div>
           </div>
-          <button className={`cart__button cart-button--checkout ${cartItems.length === 0 ? 'hide' : ''}`}>CHECKOUT</button>
+          <button className={`cart__button cart-button--checkout ${cartItems.length === 0 ? 'hide' : ''}`} onClick={handleShowCheckOut} >CHECKOUT</button>
       </div>
   );
 }
