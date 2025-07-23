@@ -135,22 +135,22 @@ namespace ReactDemo.Server.Database
                 new Guest { Id = 5, FirstName = "Winston", LastName = "Bishop", Email = "winston@test.com"}
                 );
             builder.Entity<Booking>().HasData(
-                new Booking { Id = 1, GuestId = 1, CheckInDate = new DateOnly(2025, 7, 20), CheckOutDate = new DateOnly(2025, 7, 25), NumberAdults = 2},
-                new Booking { Id = 2, GuestId = 2, CheckInDate = new DateOnly(2025, 7, 28), CheckOutDate = new DateOnly(2025, 7, 31), NumberAdults = 2, NumberChildren = 1},
-                new Booking { Id = 3, GuestId = 3, CheckInDate = new DateOnly(2025, 8, 1), CheckOutDate = new DateOnly(2025, 8, 31), NumberAdults = 1, NumberChildren = 1},
-                new Booking { Id = 4, GuestId = 1, CheckInDate = new DateOnly(2025, 9, 1), CheckOutDate = new DateOnly(2025, 9, 10), NumberAdults = 2},
-                new Booking { Id = 5, GuestId = 4, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1},
-                new Booking { Id = 6, GuestId = 4, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1}
+                new Booking { Id = 1, GuestId = 1},
+                new Booking { Id = 2, GuestId = 2},
+                new Booking { Id = 3, GuestId = 3},
+                new Booking { Id = 4, GuestId = 1},
+                new Booking { Id = 5, GuestId = 4},
+                new Booking { Id = 6, GuestId = 4}
                 );
             builder.Entity<BookingRoom>().HasData(
-                new BookingRoom { Id = 1, BookingId =  1, RoomId = 1 },
-                new BookingRoom { Id = 2, BookingId =  2, RoomId = 9 },
-                new BookingRoom { Id = 3, BookingId =  2, RoomId = 11 },
-                new BookingRoom { Id = 4, BookingId =  4, RoomId = 2 },
-                new BookingRoom { Id = 5, BookingId =  3, RoomId = 3 },
-                new BookingRoom { Id = 6, BookingId =  5, RoomId = 8 },
-                new BookingRoom { Id = 7, BookingId =  6, RoomId = 13 },
-                new BookingRoom { Id = 8, BookingId =  6, RoomId = 16 }
+                new BookingRoom { Id = 1, BookingId =  1, RoomId = 1, CheckInDate = new DateOnly(2025, 7, 20), CheckOutDate = new DateOnly(2025, 7, 25), NumberAdults = 2 },
+                new BookingRoom { Id = 2, BookingId =  2, RoomId = 9, CheckInDate = new DateOnly(2025, 7, 28), CheckOutDate = new DateOnly(2025, 7, 31), NumberAdults = 2, NumberChildren = 1 },
+                new BookingRoom { Id = 3, BookingId =  2, RoomId = 11, CheckInDate = new DateOnly(2025, 7, 28), CheckOutDate = new DateOnly(2025, 7, 31), NumberAdults = 1, NumberChildren = 1 },
+                new BookingRoom { Id = 4, BookingId =  4, RoomId = 2, CheckInDate = new DateOnly(2025, 9, 1), CheckOutDate = new DateOnly(2025, 9, 10), NumberAdults = 2 },
+                new BookingRoom { Id = 5, BookingId =  3, RoomId = 3, CheckInDate = new DateOnly(2025, 8, 1), CheckOutDate = new DateOnly(2025, 8, 31), NumberAdults = 1, NumberChildren = 1 },
+                new BookingRoom { Id = 6, BookingId =  5, RoomId = 8, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1 },
+                new BookingRoom { Id = 7, BookingId =  6, RoomId = 13, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1 },
+                new BookingRoom { Id = 8, BookingId =  6, RoomId = 16, CheckInDate = new DateOnly(2025, 9, 16), CheckOutDate = new DateOnly(2025, 9, 20), NumberAdults = 1, NumberChildren = 1 }
                 );
         }
 

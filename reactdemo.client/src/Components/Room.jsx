@@ -7,7 +7,7 @@ const Room = ({ room, handleBookRoom, imgSrc }) => {
 
     const detailsList = room.roomDescription.split(".").map((descriptionItem, i) => <li className="room__details-list-item" key={i} >{descriptionItem}</li>)
     const handleBookNowClick = () => {
-        handleBookRoom(room.price, room.title);
+        handleBookRoom(room.price, room.title, room.id);
     }
 
     return (

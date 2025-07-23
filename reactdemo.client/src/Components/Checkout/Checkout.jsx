@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import CartItem from '../Cart/CartItem';
 import GuestCheckoutForm from "./GuestCheckoutForm";
 import '../../Styles/Checkout/Checkout.css';
-function Checkout({ cartItems, cartTotal, tax, handleRemoveRoom, isCheckOut, handleHideCheckOut }) {
+function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, handleRemoveRoom, isCheckOut, handleHideCheckOut, handlePostBooking }) {
 
     const [isConfirmation, setIsConfirmation] = useState(false);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleShowConfirmation = () => {
+        handlePostBooking(firstName, lastName, email);
         setIsConfirmation(true);
     }
 
@@ -19,13 +23,25 @@ function Checkout({ cartItems, cartTotal, tax, handleRemoveRoom, isCheckOut, han
         setIsConfirmation(false);
     }
 
+    const handleUpdateFirstName = (value) => {
+        setFirstName(value);
+    }
+
+    const handleUpdateLastName = (value) => {
+        setLastName(value);
+    }
+
+    const handleUpdateEmail = (value) => {
+        setEmail(value);
+    }
+
   return (
       <div className={`checkout ${isCheckOut ? '' : 'hide'}`} >
           <div className="checkout__overlay" ></div>
           <div className="checkout__modal" >
               <div className={`checkout__content ${isConfirmation ? 'hide' : ''}`}>
                   <div className="checkout__detail" >
-                      <GuestCheckoutForm/>
+                      <GuestCheckoutForm handleUpdateFirstName={handleUpdateFirstName} handleUpdateLastName={handleUpdateLastName} handleUpdateEmail={handleUpdateEmail} />
                       <div className="checkout__cart-items-container" >
                           {cartItems.map((cartItem, i) => {
                               return <CartItem key={i} cartItem={cartItem} id={i} tax={tax} handleRemoveRoom={handleRemoveRoom} />
@@ -39,9 +55,14 @@ function Checkout({ cartItems, cartTotal, tax, handleRemoveRoom, isCheckOut, han
                   </div>
               </div>
               <div className={`checkout__confirmation ${isConfirmation ? '' : 'hide'}`}>
-                  <div className="checkout__confirmation-header" >Confirmation</div>
-                  <p className="checkout__confirmation-thankyou" >Thank you for booking with Borgo Santandrea.</p>
-                  <p>This website is created for demo purposes only. No actual payment will be collected.</p>
+                  <div className={`${isBookingSuccessful ? '' : 'hide'}`} >
+                      <div className="checkout__confirmation-header" >Confirmation</div>
+                      <p className="checkout__confirmation-thankyou" >Thank you for booking with Borgo Santandrea.</p>
+                      <p>This website is created for demo purposes only. No actual payment will be collected.</p>
+                  </div>
+                  <div className={`${isBookingSuccessful ? 'hide' : ''}`}>
+                      <p className="checkout__confirmation-thankyou" >At least one of the rooms that you trying to book is no longer available. Please refresh your search.</p>
+                  </div>
               </div>
                 <div className='checkout__buttons-container' >
                     <button className="checkout__button--transparent" onClick={handleClickCancel} >Cancel</button>

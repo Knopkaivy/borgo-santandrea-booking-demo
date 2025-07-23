@@ -19,6 +19,7 @@ function App() {
     const [cartItems, setCartItems] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
     const [isCheckOut, setIsCheckOut] = useState(false);
+    const [isBookingSuccessful, setIsBookingSuccessful] = useState(false);
 
     const getRooms = (start, end) => {
         const startDateString = start.toISOString().split('T')[0];
@@ -34,9 +35,6 @@ function App() {
             })
     }
 
-    const postBooking = () => {
-
-    }
 
     useEffect(() => {
         getRooms(startDate, endDate);
@@ -64,7 +62,7 @@ function App() {
         return total;
     }
 
-    const handleBookRoom = (price, name) => {
+    const handleBookRoom = (price, name, roomTypeId) => {
         const numberNights = Math.floor((endDate.getTime() - startDate.getTime()) / 86400000);
         const booking = {
             preTaxTotal: price * numberNights,
@@ -74,6 +72,7 @@ function App() {
             adults,
             children,
             name,
+            roomTypeId
         }
         const newCartItems = [...cartItems, booking]
         setCartItems(newCartItems);
@@ -95,13 +94,54 @@ function App() {
         setIsCheckOut(false);
     }
 
-    const handlePostBooking = () => {
+    const postBooking = (postData) => {
+        fetch(`room/book/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                setIsBookingSuccessful(true);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                setIsBookingSuccessful(false);
+            });
+    }
 
+    const handlePostBooking = (firstName, lastName, email) => {
+        const bookingItems = [];
+        cartItems.forEach((cartItem, i) => {
+            const newBookingItem = {
+                checkInDateString: cartItem.startDate.toLocaleDateString(),
+                checkOutDateString: cartItem.endDate.toLocaleDateString(),
+                numberAdults: cartItem.adults,
+                numberChildren: cartItem.children,
+                roomTypeId: cartItem.roomTypeId,
+            }
+            bookingItems.push(newBookingItem);
+        })
+        const postData = {
+            firstName,
+            lastName,
+            email,
+            bookingItems
+        };
+        postBooking(postData);
     }
 
     return (
         <main className="app__main" >
-            <Checkout cartItems={cartItems} cartTotal={cartTotal} handleRemoveRoom={handleRemoveRoom} tax={tax} isCheckOut={isCheckOut} handleShowCheckOut={handleShowCheckOut} handleHideCheckOut={handleHideCheckOut} />
+            <Checkout cartItems={cartItems} cartTotal={cartTotal} isBookingSuccessful={isBookingSuccessful} handleRemoveRoom={handleRemoveRoom} tax={tax} isCheckOut={isCheckOut} handleShowCheckOut={handleShowCheckOut} handleHideCheckOut={handleHideCheckOut} handlePostBooking={handlePostBooking} />
             <div className="app__content--left" >
                 <BookingSection startDate={startDate} endDate={endDate} maxDate={maxDate} adults={adults} children={children} handleDateChange={handleDateChange} handleClickSearch={handleClickSearch} handleGuestsUpdate={handleGuestsUpdate } />
                 <Rooms rooms={rooms} numberGuests={adults + children} handleBookRoom={handleBookRoom} />
