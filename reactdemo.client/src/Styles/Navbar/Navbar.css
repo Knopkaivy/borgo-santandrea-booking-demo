@@ -1,0 +1,38 @@
+.navbar{
+    width: 100%;
+    background-color: var(--color-white);
+    border-top: 8rem solid var(--color-blue-yonder);
+    height: 12.8rem;
+}
+
+.navbar__content{
+    max-width: 124rem;
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.navbar__logo-container{
+    position: absolute;
+    top: -7rem;
+    left: 0;
+    width: 20rem;
+    height: 10rem;
+    overflow: hidden;
+}
+
+.navbar__logo-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.navbar__link-list{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 3rem;
+}

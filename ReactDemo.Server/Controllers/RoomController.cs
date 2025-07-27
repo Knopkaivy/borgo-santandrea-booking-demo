@@ -60,7 +60,7 @@ namespace ReactDemo.Server.Controllers
         [HttpPost("book")]
         public async Task<IActionResult> Post([FromBody] BookingRequest bookingRequest)
         {
-
+            int bookingId;
             try
             {
 
@@ -88,7 +88,7 @@ namespace ReactDemo.Server.Controllers
                     };
                     _context.Add(booking);
                     await _context.SaveChangesAsync();
-                    int bookingId = booking.Id;
+                    bookingId = booking.Id;
                 List<BookingRoom> roomList = new List<BookingRoom>();
                 List<int> roomIdList = new List<int>();
 
@@ -130,7 +130,7 @@ namespace ReactDemo.Server.Controllers
                 return BadRequest();
             }
 
-            return Ok("Booking confirmed");
+            return Ok(bookingId);
         }
     }
 }

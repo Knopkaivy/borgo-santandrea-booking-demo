@@ -1,7 +1,7 @@
 import Room from './Room';
 import NoRoomsWarning from './NoRoomsWarning';
 import RoomsImagesArray from './RoomsImages';
-import '../Styles/Rooms.css';
+import '../../Styles/Room/Rooms.css';
 
 const Rooms = ({ rooms, numberGuests, handleBookRoom }) => {
 

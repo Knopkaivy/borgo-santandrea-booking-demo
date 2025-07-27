@@ -1,13 +1,13 @@
 import Amenity from './Amenity';
-import BarIcon from './Icons/BarIcon';
-import BeachIcon from './Icons/BeachIcon';
-import FoodIcon from './Icons/FoodIcon';
-import GymIcon from './Icons/GymIcon';
-import PersonIcon from './Icons/PersonIcon';
-import ServicesIcon from './Icons/ServicesIcon';
-import SwimIcon from './Icons/SwimIcon';
-import WiFiIcon from './Icons/WiFiIcon';
-import '../Styles/AmenitiesList.css';
+import BarIcon from '../Icons/BarIcon';
+import BeachIcon from '../Icons/BeachIcon';
+import FoodIcon from '../Icons/FoodIcon';
+import GymIcon from '../Icons/GymIcon';
+import PersonIcon from '../Icons/PersonIcon';
+import ServicesIcon from '../Icons/ServicesIcon';
+import SwimIcon from '../Icons/SwimIcon';
+import WiFiIcon from '../Icons/WiFiIcon';
+import '../../Styles/Amenity/AmenitiesList.css';
 function AmenititesList() {
     const list = [
         {

@@ -1,4 +1,4 @@
-import '../Styles/Amenity.css';
+import '../../Styles/Amenity/Amenity.css';
 function Amenity({description, icon}) {
   return (
       <div className='amenity' >

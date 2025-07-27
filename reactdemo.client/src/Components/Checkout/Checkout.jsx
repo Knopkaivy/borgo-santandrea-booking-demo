@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CartItem from '../Cart/CartItem';
 import GuestCheckoutForm from "./GuestCheckoutForm";
 import '../../Styles/Checkout/Checkout.css';
-function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, handleRemoveRoom, isCheckOut, handleHideCheckOut, handlePostBooking }) {
+function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, confirmationNumber, handleRemoveRoom, isCheckOut, handleHideCheckOut, handlePostBooking }) {
 
     const [isConfirmation, setIsConfirmation] = useState(false);
     const [firstName, setFirstName] = useState('');
@@ -58,7 +58,9 @@ function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, handleRemove
                   <div className={`${isBookingSuccessful ? '' : 'hide'}`} >
                       <div className="checkout__confirmation-header" >Confirmation</div>
                       <p className="checkout__confirmation-thankyou" >Thank you for booking with Borgo Santandrea.</p>
-                      <p>This website is created for demo purposes only. No actual payment will be collected.</p>
+                      <p>Please save this confirmation number for future reference - <span className='bold' >{confirmationNumber}</span></p>
+                      <br/>
+                      <p>This website is created for demo purposes only. No actual services will be provided and no payment will be collected.</p>
                   </div>
                   <div className={`${isBookingSuccessful ? 'hide' : ''}`}>
                       <p className="checkout__confirmation-thankyou" >At least one of the rooms that you trying to book is no longer available. Please refresh your search.</p>

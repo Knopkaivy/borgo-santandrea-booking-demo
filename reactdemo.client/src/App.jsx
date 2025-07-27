@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import AmenititesList from './Components/AmenititesList';
+import AmenititesList from './Components/Amenity/AmenititesList';
 import BookingSection from './Components/Booking/BookingSection';
 import Cart from './Components/Cart/Cart';
-import Rooms from './Components/Rooms';
-import Checkout from "./Components/Checkout/Checkout";
+import Checkout from './Components/Checkout/Checkout';
+import Navbar from './Components/Navbar/Navbar';
+import Rooms from './Components/Room/Rooms';
 import './Styles/App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     const [cartTotal, setCartTotal] = useState(0);
     const [isCheckOut, setIsCheckOut] = useState(false);
     const [isBookingSuccessful, setIsBookingSuccessful] = useState(false);
+    const [confirmationNumber, setConfirmationNumber] = useState();
 
     const getRooms = (start, end) => {
         const startDateString = start.toISOString().split('T')[0];
@@ -109,11 +111,10 @@ function App() {
                 return response.text();
             })
             .then(data => {
-                console.log('Success:', data);
                 setIsBookingSuccessful(true);
+                setConfirmationNumber(data);
             })
             .catch(error => {
-                console.error('Error:', error);
                 setIsBookingSuccessful(false);
             });
     }
@@ -140,17 +141,20 @@ function App() {
     }
 
     return (
-        <main className="app__main" >
-            <Checkout cartItems={cartItems} cartTotal={cartTotal} isBookingSuccessful={isBookingSuccessful} handleRemoveRoom={handleRemoveRoom} tax={tax} isCheckOut={isCheckOut} handleShowCheckOut={handleShowCheckOut} handleHideCheckOut={handleHideCheckOut} handlePostBooking={handlePostBooking} />
-            <div className="app__content--left" >
-                <BookingSection startDate={startDate} endDate={endDate} maxDate={maxDate} adults={adults} children={children} handleDateChange={handleDateChange} handleClickSearch={handleClickSearch} handleGuestsUpdate={handleGuestsUpdate } />
-                <Rooms rooms={rooms} numberGuests={adults + children} handleBookRoom={handleBookRoom} />
-            </div>
-            <div className="app__content--right" >
-                <Cart cartItems={cartItems} cartTotal={cartTotal} handleRemoveRoom={handleRemoveRoom} tax={tax} handleShowCheckOut={handleShowCheckOut} />
-                <AmenititesList/>
-            </div>
-        </main>
+        <div>
+        <Navbar/>
+            <main className="app__main" >
+                <Checkout cartItems={cartItems} cartTotal={cartTotal} isBookingSuccessful={isBookingSuccessful} confirmationNumber={confirmationNumber} handleRemoveRoom={handleRemoveRoom} tax={tax} isCheckOut={isCheckOut} handleShowCheckOut={handleShowCheckOut} handleHideCheckOut={handleHideCheckOut} handlePostBooking={handlePostBooking} />
+                <div className="app__content--left" >
+                    <BookingSection startDate={startDate} endDate={endDate} maxDate={maxDate} adults={adults} children={children} handleDateChange={handleDateChange} handleClickSearch={handleClickSearch} handleGuestsUpdate={handleGuestsUpdate } />
+                    <Rooms rooms={rooms} numberGuests={adults + children} handleBookRoom={handleBookRoom} />
+                </div>
+                <div className="app__content--right" >
+                    <Cart cartItems={cartItems} cartTotal={cartTotal} handleRemoveRoom={handleRemoveRoom} tax={tax} handleShowCheckOut={handleShowCheckOut} />
+                    <AmenititesList/>
+                </div>
+            </main>
+        </div>
     );
     
 }

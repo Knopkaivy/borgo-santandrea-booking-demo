@@ -1,8 +1,5 @@
 ﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+    width: 100%;
 }
 
 th, td {
@@ -11,8 +8,9 @@ th, td {
 }
 
 .app__main{
+    margin: 0 auto;
     width: 100%;
-    max-width: 128rem;
+    max-width: 124rem;
     display: flex;
     gap: 1.6rem;
 }
