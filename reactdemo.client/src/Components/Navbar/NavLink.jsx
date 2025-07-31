@@ -1,10 +1,9 @@
+import { Link } from "react-router";
 import '../../Styles/Navbar/NavLink.css';
-function NavLink({text}) {
+function NavLink({hrefVal, text}) {
   return (
       <li >
-          <a href='/'  className='navlink'>
-              {text}
-          </a>
+          <Link to={hrefVal} >{text}</Link>
       </li>
   );
 }

@@ -1,0 +1,20 @@
+.home__main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 124rem;
+    display: flex;
+    gap: 1.6rem;
+}
+
+.home__content--left {
+    flex: 0 0 67%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.home__content--right {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}

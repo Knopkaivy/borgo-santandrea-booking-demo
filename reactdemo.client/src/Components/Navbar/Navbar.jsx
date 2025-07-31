@@ -9,9 +9,9 @@ function Navbar() {
                   <img src={LogoImage} />
               </div>
               <ul className='navbar__link-list'>
-                <NavLink text='Add a room' />
-                <NavLink text='My bookings' />
-                <NavLink text='Sign in' />
+                <NavLink hferVal='/' text='Add a room' />
+                <NavLink hrefVal='/' text='My bookings' />
+                <NavLink hrefVal='/login' text='Sign in' />
               </ul>
           </nav>
       </div>
