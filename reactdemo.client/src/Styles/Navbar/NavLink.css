@@ -1,17 +1,17 @@
-.navlink{
+.navlink a{
     color: inherit;
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
 }
 
-.navlink:visited{
+.navlink a:visited{
     color: inherit;
 }
 
-    .navlink:hover,
-    .navlink:focus,
-    .navlink:active {
-        text-decoration: underline;
-        color: var(--color-maya-blue);
-    }
+.navlink:hover,
+.navlink:focus,
+.navlink:active {
+    text-decoration: underline;
+    color: var(--color-maya-blue);
+}

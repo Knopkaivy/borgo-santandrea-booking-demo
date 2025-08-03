@@ -1,0 +1,15 @@
+.find-booking {
+    background-color: var(--color-grey-light);
+}
+
+.find-booking__content {
+    width: 100%;
+    max-width: 124rem;
+    margin: 0 auto;
+}
+
+.find-booking__heading {
+    font-size: 2.88rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}

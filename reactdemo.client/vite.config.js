@@ -66,6 +66,10 @@ export default defineConfig({
             '/room': {
                 target,
                 secure: false
+            },
+            '/booking': {
+                target,
+                secure: false
             }
         },
         port: 65178,

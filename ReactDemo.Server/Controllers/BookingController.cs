@@ -1,0 +1,123 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ReactDemo.Server.Database;
+using ReactDemo.Server.Models;
+
+namespace ReactDemo.Server.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class BookingController : ControllerBase
+    {
+        private readonly AppDbContext _context;
+
+        public BookingController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        //GET booking/
+        [HttpGet()]
+        public async Task<List<BookingViewModel>> Get()
+        {
+            List<BookingViewModel> bookingViewList = new List<BookingViewModel>();
+
+            List<Booking> bookings = await _context.Booking.ToListAsync();
+
+            foreach (Booking booking in bookings) {
+                var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
+                if (guest != null) { 
+                    bookingViewList.Add(new BookingViewModel
+                    {
+                        BookingId = booking.Id,
+                        GuestId = guest.Id,
+                        FirstName = guest.FirstName,
+                        LastName = guest.LastName,
+                        Email = guest.Email,
+                    });
+                }
+            }
+
+            return bookingViewList;
+        }
+
+        //GET booking/5/test@test.com
+        [HttpGet("{bookingId}/{email}")]
+        public async Task<List<BookingViewModel>> Get(int bookingId, string email)
+        {
+            List<BookingViewModel> bookingViewList = new List<BookingViewModel>();
+
+            List<Booking> bookings = await _context.Booking.Where(b => b.Id ==bookingId).ToListAsync();
+
+            foreach (Booking booking in bookings)
+            {
+                var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
+                if (guest != null)
+                {
+                    bookingViewList.Add(new BookingViewModel
+                    {
+                        BookingId = booking.Id,
+                        GuestId = guest.Id,
+                        FirstName = guest.FirstName,
+                        LastName = guest.LastName,
+                        Email = guest.Email,
+                    });
+                }
+            }
+
+            return bookingViewList;
+        }
+
+        //GET booking/detail/5
+        //[HttpGet("detail/{bookingId}/")]
+        //public async Task<List<BookingViewModel>> Get(int bookingId)
+        //{
+        //    List<BookingViewModel> bookingViewList = new List<BookingViewModel>();
+
+        //    List<Booking> bookings = await _context.Booking.ToListAsync();
+
+        //    foreach (Booking booking in bookings) {
+        //        var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
+        //        if (guest != null) { 
+        //            bookingViewList.Add(new BookingViewModel
+        //            {
+        //                BookingId = booking.Id,
+        //                GuestId = guest.Id,
+        //                FirstName = guest.FirstName,
+        //                LastName = guest.LastName,
+        //                Email = guest.Email,
+        //            });
+        //        }
+        //    }
+
+        //    return bookingViewList;
+        //}
+
+        // DELETE: booking/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id) {
+            try
+            {
+                var booking = await _context.Booking.FirstOrDefaultAsync(b => b.Id == id);
+                if (booking != null)
+                {
+                    _context.Booking.Remove(booking);
+                    await _context.SaveChangesAsync();
+                }
+                
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Request error: {e.Message}");
+                return BadRequest();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"An unexpected error occurred: {e.Message}");
+                return BadRequest();
+            }
+
+            return NoContent();
+        }
+    }
+}

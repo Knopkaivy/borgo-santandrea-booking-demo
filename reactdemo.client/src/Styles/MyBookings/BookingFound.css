@@ -1,0 +1,24 @@
+.booking-found {
+    background-color: var(--color-white);
+    border: var(--border-grey-spanish);
+}
+
+.booking-found__header {
+    border-bottom: var(--border-grey-spanish);
+    width: 100%;
+    display: flex;
+    padding: 1.6rem;
+}
+
+.booking-found__header-item{
+    flex: 0 0 25%;
+}
+
+.booking-found__list {
+    list-style: none;
+    margin: 0;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}

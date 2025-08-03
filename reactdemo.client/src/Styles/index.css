@@ -60,7 +60,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+button, .button {
   border-radius: 0;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -72,7 +72,8 @@ button {
 }
 
 a:focus,
-button:focus {
+button:focus,
+.button:focus{
     outline-color: var(--color-red);
     outline-offset: 4px;
 }

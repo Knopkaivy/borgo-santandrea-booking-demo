@@ -8,7 +8,6 @@ namespace ReactDemo.Server.Models
     {
         [Key]
         public int Id { get; set; }
-        [DeleteBehavior(DeleteBehavior.Restrict)]
         public Booking Booking { get; set; }
         public int BookingId { get; set; }
         [DeleteBehavior(DeleteBehavior.Restrict)]

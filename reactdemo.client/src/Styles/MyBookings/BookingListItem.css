@@ -1,0 +1,48 @@
+.booking-list-item {
+    display: flex;
+}
+
+.booking-list-item__subitem{
+    flex: 0 0 25%;
+    align-self: center;
+}
+
+.booking-list-item__subitem--button-container{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.booking-list-item__button-link {
+    text-decoration: none;
+    color: var(--color-white);
+    background-color: var(--color-lapis-lazuli);
+}
+
+.booking-list-item__button-link:visited {
+    color: var(--color-white);
+}
+
+.booking-list-item__button-link:hover,
+.booking-list-item__button-link:focus,
+.booking-list-item__button-link:active {
+    background-color: var(--color-white);
+    border-color: var(--color-lapis-lazuli);
+    color: var(--color-lapis-lazuli);
+}
+
+.booking-list-item__button--blue-light {
+    background-color: var(--color-moonstone);
+    border: var(--border-lapis-lazuli);
+    border-color: var(--color-moonstone);
+    color: var(--color-white);
+    width: auto;
+}
+
+.booking-list-item__button--blue-light:hover,
+.booking-list-item__button--blue-light:focus,
+.booking-list-item__button--blue-light:active {
+    background-color: var(--color-white);
+    color: var(--color-lapis-lazuli);
+    border-color: var(--color-lapis-lazuli);
+}
