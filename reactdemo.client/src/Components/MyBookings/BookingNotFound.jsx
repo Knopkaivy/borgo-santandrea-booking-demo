@@ -1,9 +1,9 @@
 import '../../Styles/MyBookings/BookingNotFound.css';
-function BookingNotFound({ handleResetFindBooking }) {
+function BookingNotFound({ handleRefreshBookingList }) {
   return (
       <div className='booking-not-found' >
           <p>Booking not found</p>
-          <button onClick={handleResetFindBooking} >GO BACK</button>
+          <button onClick={handleRefreshBookingList} >GO BACK</button>
       </div>
   );
 }

@@ -19,7 +19,8 @@
     background-color: var(--color-lapis-lazuli);
 }
 
-.booking-list-item__button-link:visited {
+.booking-list-item__button-link:visited,
+.booking-list-item__button-link--blue-light:visited {
     color: var(--color-white);
 }
 
@@ -31,17 +32,18 @@
     color: var(--color-lapis-lazuli);
 }
 
-.booking-list-item__button--blue-light {
+.booking-list-item__button-link--blue-light {
     background-color: var(--color-moonstone);
     border: var(--border-lapis-lazuli);
     border-color: var(--color-moonstone);
     color: var(--color-white);
+    text-decoration: none;
     width: auto;
 }
 
-.booking-list-item__button--blue-light:hover,
-.booking-list-item__button--blue-light:focus,
-.booking-list-item__button--blue-light:active {
+.booking-list-item__button-link--blue-light:hover,
+.booking-list-item__button-link--blue-light:focus,
+.booking-list-item__button-link--blue-light:active {
     background-color: var(--color-white);
     color: var(--color-lapis-lazuli);
     border-color: var(--color-lapis-lazuli);

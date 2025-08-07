@@ -20,7 +20,7 @@ function AllBookings() {
         getBookings();
     }, [])
 
-    const handleGetAllBookings = () => {
+    const handleRefreshBookingList = () => {
         getBookings();
     }
 
@@ -28,7 +28,7 @@ function AllBookings() {
         <>
             <Navbar />
             <main className='all-bookings' >
-                <BookingFound bookings={bookings} handleGetAllBookings={handleGetAllBookings} />
+                <BookingFound bookings={bookings} handleRefreshBookingList={handleRefreshBookingList} />
             </main>
         </>
     );

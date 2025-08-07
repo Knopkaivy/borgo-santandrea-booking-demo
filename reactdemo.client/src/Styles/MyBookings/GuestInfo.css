@@ -1,0 +1,9 @@
+.guest-info {
+    flex: 0 0 40%;
+    border: var(--border-grey-spanish);
+    padding: 1rem;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

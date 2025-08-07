@@ -1,0 +1,29 @@
+.booking-detail-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    border: var(--border-grey-spanish);
+    padding: 1rem;
+}
+
+.booking-detail-item__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-detail-item__name {
+    font-weight: 700;
+}
+
+.booking-detail-item__button--transparent {
+    background-color: transparent;
+    border: none;
+    color: var(--color-lapis-lazuli);
+    width: auto;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+}

@@ -1,6 +1,6 @@
 import BookingListItem from './BookingListItem';
 import '../../Styles/MyBookings/BookingFound.css';
-function BookingFound({ bookings, handleGetAllBookings }) {
+function BookingFound({ bookings, handleRefreshBookingList }) {
   return (
       <div className='booking-found'>
           <div className='booking-found__header'>
@@ -11,7 +11,7 @@ function BookingFound({ bookings, handleGetAllBookings }) {
           </div>
           <ul className='booking-found__list' >
               {bookings.map(booking => {
-                  return <BookingListItem key={booking.bookingId} booking={booking} handleGetAllBookings={handleGetAllBookings } />
+                  return <BookingListItem key={booking.bookingId} booking={booking} handleRefreshBookingList={handleRefreshBookingList } />
               }) }
           
           </ul>

@@ -68,30 +68,56 @@ namespace ReactDemo.Server.Controllers
             return bookingViewList;
         }
 
-        //GET booking/detail/5
-        //[HttpGet("detail/{bookingId}/")]
-        //public async Task<List<BookingViewModel>> Get(int bookingId)
-        //{
-        //    List<BookingViewModel> bookingViewList = new List<BookingViewModel>();
+        //GET booking/detail/get/5
+        [HttpGet("detail/get/{bookingId}/")]
+        public async Task<BookingViewModel> GetBookingDetail(int bookingId)
+        {
+            BookingViewModel bookingViewModel = new BookingViewModel();
 
-        //    List<Booking> bookings = await _context.Booking.ToListAsync();
+            try
+            {
+                var booking = await _context.Booking.Where(b => b.Id == bookingId).FirstOrDefaultAsync();
+                var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
+                List<BookingRoom> roomList = await _context.BookingRoom.Where(br => br.BookingId == bookingId).ToListAsync();
+                List<BookingRoomViewModel> roomViewList = new List<BookingRoomViewModel>();
 
-        //    foreach (Booking booking in bookings) {
-        //        var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
-        //        if (guest != null) { 
-        //            bookingViewList.Add(new BookingViewModel
-        //            {
-        //                BookingId = booking.Id,
-        //                GuestId = guest.Id,
-        //                FirstName = guest.FirstName,
-        //                LastName = guest.LastName,
-        //                Email = guest.Email,
-        //            });
-        //        }
-        //    }
+                foreach (var room in roomList) {
+                    var roomType = await (from r in _context.Room
+                                            join rt in _context.RoomType on r.RoomTypeId equals rt.Id
+                                            where r.Id == room.RoomId
+                                            select rt
+                                            ).FirstOrDefaultAsync();
+                    roomViewList.Add(new BookingRoomViewModel
+                    {
+                        RoomId = room.Id,
+                        CheckInDate = room.CheckInDate,
+                        CheckOutDate = room.CheckOutDate,
+                        NumberAdults = room.NumberAdults,
+                        NumberChildren = room.NumberChildren,
+                        Price = roomType.BasePrice,
+                        Name = roomType.Name,
+                    });
+                }
 
-        //    return bookingViewList;
-        //}
+                bookingViewModel.BookingId = bookingId;
+                bookingViewModel.GuestId = guest.Id;
+                bookingViewModel.FirstName = guest.FirstName;
+                bookingViewModel.LastName = guest.LastName;
+                bookingViewModel.Email = guest.Email;
+                bookingViewModel.Rooms = roomViewList;
+                
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Request error: {e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"An unexpected error occurred: {e.Message}");
+            }
+
+            return bookingViewModel;
+        }
 
         // DELETE: booking/5
         [HttpDelete("{id}")]

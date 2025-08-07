@@ -1,12 +1,11 @@
 ﻿namespace ReactDemo.Server.Models
 {
-    public class BookingViewModel
+    public class BookingDetailViewModel
     {
         public int BookingId { get; set; }
         public int GuestId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; }
-        public List<BookingRoomViewModel> Rooms { get; set; }
     }
 }

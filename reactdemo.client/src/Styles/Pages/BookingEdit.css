@@ -1,4 +1,4 @@
-.booking-detail {
+.booking-edit {
     margin: 1.6rem auto;
     width: 100%;
     max-width: 124rem;
@@ -11,14 +11,14 @@
     height: calc(100vh - 16rem);
 }
 
-.booking-detail__content{
+.booking-edit__content {
     width: 100%;
     display: flex;
     gap: 1.6rem;
     justify-content: space-between;
 }
 
-.booking-detail__items-container {
+.booking-edit__items-container {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
@@ -27,32 +27,32 @@
     flex-basis: 60%;
 }
 
-.booking-detail__total-container {
+.booking-edit__total-container {
     display: flex;
     flex-direction: column;
     align-items: end;
     margin-top: 1rem;
 }
 
-.booking-detail__total {
+.booking-edit__total {
     font-size: 1.92rem;
     font-weight: 700;
 }
 
-.booking-detail__buttons-container{
+.booking-edit__buttons-container {
     width: 100%;
     display: flex;
     justify-content: end;
     gap: 1.6rem;
 }
 
-.booking-detail__button-link--blue {
+.booking-edit__button--blue {
     text-decoration: none;
     color: var(--color-white);
     background-color: var(--color-lapis-lazuli);
 }
 
-.booking-detail__button-link--blue-light {
+.booking-edit__button-link--blue-light {
     background-color: var(--color-moonstone);
     border: var(--border-lapis-lazuli);
     border-color: var(--color-moonstone);
@@ -61,18 +61,17 @@
     width: auto;
 }
 
-.booking-detail__button-link--blue,
-.booking-detail__button-link--blue-light:visited {
+.booking-edit__button-link--blue-light:visited {
     color: var(--color-white);
 }
 
-.booking-detail__button-link--blue:hover,
-.booking-detail__button-link--blue:focus,
-.booking-detail__button-link--blue:active,
-.booking-detail__button-link--blue-light:hover,
-.booking-detail__button-link--blue-light:focus,
-.booking-detail__button-link--blue-light:active {
-    background-color: var(--color-white);
-    color: var(--color-lapis-lazuli);
-    border-color: var(--color-lapis-lazuli);
-}
+    .booking-edit__button--blue:hover,
+    .booking-edit__button--blue:focus,
+    .booking-edit__button--blue:active,
+    .booking-edit__button-link--blue-light:hover,
+    .booking-edit__button-link--blue-light:focus,
+    .booking-edit__button-link--blue-light:active {
+        background-color: var(--color-white);
+        color: var(--color-lapis-lazuli);
+        border-color: var(--color-lapis-lazuli);
+    }

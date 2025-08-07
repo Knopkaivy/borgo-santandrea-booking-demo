@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams, Link } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import BookingDetailItem from '../MyBookings/BookingDetailItem';
 import Navbar from '../Navbar/Navbar';
 import GuestInfo from '../MyBookings/GuestInfo';
-import '../../Styles/Pages/BookingDetail.css';
-function BookingDetail() {
+import '../../Styles/Pages/BookingEdit.css';
+function BookingEdit() {
     const navigate = useNavigate();
     const { id } = useParams();
     const [booking, setBooking] = useState(null);
@@ -22,7 +22,7 @@ function BookingDetail() {
     }
 
     const getBooking = () => {
-        fetch(`get/${id}`)
+        fetch(`/booking/detail/get/${id}`)
             .then(results => {
                 const res = results.json();
                 return res;
@@ -37,9 +37,14 @@ function BookingDetail() {
         getBooking();
     }, [])
 
-    const handleRemoveItem = () => {
-
+    const handleRemoveItem = (id) => {
+        console.log('removing item', id);
+        let newItemList = [...booking.rooms];
+        newItemList.splice(id, 1);
+        setBooking(prevState => ({ ...prevState, rooms: newItemList }));
+        calculateTotal(newItemList);
     }
+
 
     const deleteBooking = () => {
         fetch(`/booking/${id}/`, {
@@ -61,39 +66,52 @@ function BookingDetail() {
             });
     }
 
+
     const handleDeleteBooking = () => {
         deleteBooking();
     }
 
+    const updateBooking = () => {
+        console.log('updateBooking is not yet implemented');
+    }
+
+    const handleUpdateBooking = () => {
+        if (booking.rooms.length === 0) {
+            deleteBooking();
+        } else {
+            updateBooking();
+        }
+    }
+
     return (
-     <>
-        <Navbar/>
-            <div className='booking-detail'>
+        <>
+            <Navbar />
+            <div className='booking-edit'>
                 {booking !== null &&
-                    <div className='booking-detail__content'>
-                            <GuestInfo first={booking.firstName} last={booking.lastName} email={booking.email} />
-                        <div className="booking-detail__items-container" >
+                    <div className='booking-edit__content'>
+                        <GuestInfo first={booking.firstName} last={booking.lastName} email={booking.email} />
+                        <div className="booking-edit__items-container" >
                             {booking.rooms.map((room, i) => {
-                                return <BookingDetailItem key={i} item={room} id={i} handleRemoveItem={handleRemoveItem} isEdit={false} />
-                            })}   
+                                return <BookingDetailItem key={i} id={i} item={room} handleRemoveItem={handleRemoveItem} isEdit={true} />
+                            })}
                         </div>
                     </div>
                 }
-                <div className="booking-detail__total-container" >
-                    <div className='booking-detail__total' >
+                <div className="booking-edit__total-container" >
+                    <div className='booking-edit__total' >
                         Total
                         ${Number(bookingTotal).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </div>
                     <p >Including taxes and fees</p>
                 </div>
-                <div className="booking-detail__buttons-container">
-                    <Link to={`/booking/edit/${id}`} className='button booking-detail__button-link--blue' >EDIT</Link>
-                    <button onClick={() => navigate(-1)} className='booking-detail__button-link--blue-light' >GO BACK</button>
+                <div className="booking-edit__buttons-container">
+                    <button onClick={handleUpdateBooking} className='booking-edit__button--blue' >SAVE</button>
+                    <button onClick={() => navigate(-1)} className='booking-edit__button-link--blue-light' >GO BACK</button>
                     <button onClick={handleDeleteBooking} >DELETE</button>
                 </div>
             </div>
-     </>
-  );
+        </>
+    );
 }
 
-export default BookingDetail;
+export default BookingEdit;

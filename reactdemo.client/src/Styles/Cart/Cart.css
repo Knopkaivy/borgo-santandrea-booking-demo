@@ -7,6 +7,8 @@
     align-items: start;
     gap: 1.6rem;
     padding: 1.6rem;
+    position: sticky;
+    top: 0;
 }
 
 .cart__items-count {
@@ -29,6 +31,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    max-height: 26rem;
+    overflow-y: auto;
 }
 
 .cart__total {

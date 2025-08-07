@@ -26,10 +26,11 @@ function FindBooking() {
         setShowResult(true);
     }
 
-    const handleResetFindBooking = () => {
+    const handleRefreshBookingList = () => {
         setBookings([]);
         setShowResult(false);
     }
+
 
     return (
       <>
@@ -41,7 +42,7 @@ function FindBooking() {
                         <FindBookingForm handleGetBooking={handleGetBooking} />
                     </div>
                     <br/>
-                    {showResult && <FindBookingResult bookings={bookings} handleResetFindBooking={handleResetFindBooking} />}
+                    {showResult && <FindBookingResult bookings={bookings} handleRefreshBookingList={handleRefreshBookingList} />}
                 </div>
             </main>
       </>

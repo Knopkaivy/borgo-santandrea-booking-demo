@@ -49,7 +49,8 @@ function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, confirmation
                       </div>
                   </div>
                   <div className="checkout__total-container" >
-                      <div className='checkout__total' >Total ${Number(cartTotal).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                      <div className='checkout__total' >
+                          Total ${Number(cartTotal).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </div>
                       <p className={`${cartItems.length === 0 ? 'hide' : ''}`} >Including taxes and fees</p>
                   </div>
