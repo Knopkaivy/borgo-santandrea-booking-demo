@@ -36,6 +36,29 @@ function Home() {
             })
     }
 
+    const postBooking = (postData) => {
+        fetch(`room/book/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                setIsBookingSuccessful(true);
+                setConfirmationNumber(data);
+                resetCart();
+            })
+            .catch(error => {
+                setIsBookingSuccessful(false);
+            });
+    }
 
     useEffect(() => {
         getRooms(startDate, endDate);
@@ -93,30 +116,10 @@ function Home() {
 
     const handleHideCheckOut = () => {
         setIsCheckOut(false);
+        setIsBookingSuccessful(false);
+        setConfirmationNumber();
     }
 
-    const postBooking = (postData) => {
-        fetch(`room/book/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                setIsBookingSuccessful(true);
-                setConfirmationNumber(data);
-            })
-            .catch(error => {
-                setIsBookingSuccessful(false);
-            });
-    }
 
     const handlePostBooking = (firstName, lastName, email) => {
         const bookingItems = [];
@@ -137,6 +140,11 @@ function Home() {
             bookingItems
         };
         postBooking(postData);
+    }
+
+    const resetCart = () => {
+        setCartItems([]);
+        setCartTotal(0);
     }
 
     return (

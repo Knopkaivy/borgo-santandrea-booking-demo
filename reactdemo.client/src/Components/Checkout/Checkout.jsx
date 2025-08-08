@@ -14,7 +14,8 @@ function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, confirmation
         setIsConfirmation(true);
     }
 
-    const handleHideConfirmation = () => {
+    const handleCloseCheckOut = () => {
+        handleHideCheckOut();
         setIsConfirmation(false);
     }
 
@@ -68,9 +69,9 @@ function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, confirmation
                   </div>
               </div>
                 <div className='checkout__buttons-container' >
-                    <button className="checkout__button--transparent" onClick={handleClickCancel} >Cancel</button>
+                  <button className={`checkout__button--transparent ${isConfirmation ? 'hide' : ''}`} onClick={handleClickCancel} >Cancel</button>
                   <button className={`checkout__button--blue ${isConfirmation ? 'hide' : ''}`} onClick={handleShowConfirmation} >PROCESS PAYMENT</button>
-                  <button className={`checkout__button--blue ${isConfirmation ? '' : 'hide'}`} onClick={handleHideConfirmation} >GO BACK</button>
+                  <button className={`checkout__button--blue ${isConfirmation ? '' : 'hide'}`} onClick={handleCloseCheckOut} >CLOSE</button>
                 </div>
           </div>
       </div>
