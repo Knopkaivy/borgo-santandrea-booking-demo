@@ -33,18 +33,25 @@ function BookingEdit() {
             })
     }
 
-    useEffect(() => {
-        getBooking();
-    }, [])
+    const updateBooking = () => {
+        fetch(`/booking/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Update failed');
+                }
 
-    const handleRemoveItem = (id) => {
-        console.log('removing item', id);
-        let newItemList = [...booking.rooms];
-        newItemList.splice(id, 1);
-        setBooking(prevState => ({ ...prevState, rooms: newItemList }));
-        calculateTotal(newItemList);
+                return response.json();
+            })
+            .then(data => {
+                navigate(`/booking/detail/${id}`);
+            })
     }
-
 
     const deleteBooking = () => {
         fetch(`/booking/${id}/`, {
@@ -66,13 +73,15 @@ function BookingEdit() {
             });
     }
 
+    useEffect(() => {
+        getBooking();
+    }, [])
 
-    const handleDeleteBooking = () => {
-        deleteBooking();
-    }
-
-    const updateBooking = () => {
-        console.log('updateBooking is not yet implemented');
+    const handleRemoveItem = (id) => {
+        let newItemList = [...booking.rooms];
+        newItemList.splice(id, 1);
+        setBooking(prevState => ({ ...prevState, rooms: newItemList }));
+        calculateTotal(newItemList);
     }
 
     const handleUpdateBooking = () => {
@@ -81,6 +90,10 @@ function BookingEdit() {
         } else {
             updateBooking();
         }
+    }
+
+    const handleDeleteBooking = () => {
+        deleteBooking();
     }
 
     return (

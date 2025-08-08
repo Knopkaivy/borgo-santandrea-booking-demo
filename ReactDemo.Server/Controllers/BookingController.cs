@@ -89,7 +89,7 @@ namespace ReactDemo.Server.Controllers
                                             ).FirstOrDefaultAsync();
                     roomViewList.Add(new BookingRoomViewModel
                     {
-                        RoomId = room.Id,
+                        RoomId = room.RoomId,
                         CheckInDate = room.CheckInDate,
                         CheckOutDate = room.CheckOutDate,
                         NumberAdults = room.NumberAdults,
@@ -119,8 +119,51 @@ namespace ReactDemo.Server.Controllers
             return bookingViewModel;
         }
 
-        // DELETE: booking/5
-        [HttpDelete("{id}")]
+        // PUT: booking/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBooking(int id, BookingViewModel booking)
+        {
+            if (id != booking.BookingId)
+            {
+                return BadRequest("ID in URL doesn't match ID in request body");
+            }
+
+            try
+            {
+                List<BookingRoom> bookingRooms = await _context.BookingRoom.Where(br => br.BookingId == booking.BookingId).ToListAsync();
+                List<BookingRoom> bookingRoomsUpdated = new List<BookingRoom>();
+                foreach (BookingRoomViewModel room in booking.Rooms) {
+                    bookingRoomsUpdated.Add(
+                        new BookingRoom
+                        {
+                            BookingId = booking.BookingId,
+                            RoomId = room.RoomId,
+                            CheckInDate = room.CheckInDate,
+                            CheckOutDate = room.CheckOutDate,
+                            NumberAdults = room.NumberAdults,
+                            NumberChildren = room.NumberChildren,
+                        });
+                };
+
+                _context.BookingRoom.RemoveRange(bookingRooms);
+                _context.BookingRoom.AddRange(bookingRoomsUpdated);
+                await _context.SaveChangesAsync();
+                return Ok(booking);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Request error: {e.Message}");
+                return BadRequest();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"An unexpected error occurred: {e.Message}");
+                return BadRequest();
+            }
+        }
+
+            // DELETE: booking/5
+            [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id) {
             try
             {
