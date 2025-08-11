@@ -1,6 +1,10 @@
 import LogoImage from '../../assets/Images/BorgoSALogo.webp';
-import '../../Styles/Navbar/Navbar.css';
+import LogOut from '../Authorize/LogOut';
 import NavLink from './NavLink';
+
+import '../../Styles/Navbar/Navbar.css';
+import AuthorizeView from '../Authorize/AuthorizeView';
+import UnauthorizeView from '../Authorize/UnauthorizeView';
 function Navbar() {
   return (
       <div className='navbar' >
@@ -10,9 +14,14 @@ function Navbar() {
               </div>
               <ul className='navbar__link-list'>
                   <NavLink hrefVal='/' text='Add a room' />
-                  <NavLink hrefVal='/find' text='My bookings' />
-                  <NavLink hrefVal='/bookings' text='All bookings' />
-                  <NavLink hrefVal='/login' text='Sign in' />
+                  <AuthorizeView>
+                    <NavLink hrefVal='/bookings' text='All bookings' />
+                    <LogOut />
+                  </AuthorizeView>
+                  <UnauthorizeView>
+                    <NavLink hrefVal='/find' text='Find booking' />
+                    <NavLink hrefVal='/login' text='Sign in' />
+                  </UnauthorizeView>
               </ul>
           </nav>
       </div>

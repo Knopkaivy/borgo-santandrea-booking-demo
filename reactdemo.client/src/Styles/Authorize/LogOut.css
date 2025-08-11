@@ -1,0 +1,17 @@
+.logout a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+    .logout a:visited {
+        color: inherit;
+    }
+
+.logout:hover,
+.logout:focus,
+.logout:active {
+    text-decoration: underline;
+    color: var(--color-maya-blue);
+}

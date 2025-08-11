@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../Navbar/Navbar';
-import '../../Styles/Pages/AllBookings.css';
 import BookingFound from '../MyBookings/BookingFound';
+import AuthorizeView from '../Authorize/AuthorizeView';
+
+import '../../Styles/Pages/AllBookings.css';
 function AllBookings() {
     const [bookings, setBookings] = useState([]);
 
@@ -28,7 +30,9 @@ function AllBookings() {
         <>
             <Navbar />
             <main className='all-bookings' >
-                <BookingFound bookings={bookings} handleRefreshBookingList={handleRefreshBookingList} />
+                <AuthorizeView>
+                    <BookingFound bookings={bookings} handleRefreshBookingList={handleRefreshBookingList} />
+                </AuthorizeView>
             </main>
         </>
     );
