@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReactDemo.Server.Database;
 
@@ -11,9 +12,11 @@ using ReactDemo.Server.Database;
 namespace ReactDemo.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250816001032_SeedAdminUnserData")]
+    partial class SeedAdminUnserData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,6 +197,9 @@ namespace ReactDemo.Server.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateOnly?>("DateOfBirth")
+                        .HasColumnType("date");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -259,7 +265,8 @@ namespace ReactDemo.Server.Migrations
                         {
                             Id = "80c4e17f-70dd-4aaa-bbc0-ac3fd88682bf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d980873-bba8-494d-bccd-9c382add5ce3",
+                            ConcurrencyStamp = "d7d03d09-2aea-4996-9642-4cc626e94e70",
+                            DateOfBirth = new DateOnly(1991, 1, 1),
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "Borgo",
@@ -267,9 +274,9 @@ namespace ReactDemo.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPZEaOw5bWUvUveioHkeHYmoJIP7PrcTBSx7vUtm81lUWd07XzOFnfmXuc3OLjBAiA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIYErJQQhAQG157H350XL91bmqNUPRQSQMlyn5i9J1W2mN9orUybutSKCiWjpdxp8g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "29aa48e7-318c-4455-9979-1e2716517fc6",
+                            SecurityStamp = "af2b48c9-61ab-49f0-b32f-1773f9969627",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });

@@ -51,10 +51,6 @@ export default defineConfig({
                 target,
                 secure: false
             },
-            '^/register': {
-                target,
-                secure: false
-            },
             '^/login': {
                 target,
                 secure: false
@@ -68,6 +64,10 @@ export default defineConfig({
                 secure: false
             },
             '/booking': {
+                target,
+                secure: false
+            },
+            '/users': {
                 target,
                 secure: false
             }

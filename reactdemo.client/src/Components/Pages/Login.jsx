@@ -78,7 +78,7 @@ function Login() {
                     {error && <p className="form__error">{error}</p>}
                     <form onSubmit={handleSubmit}>
                         <div className='form__input-field'>
-                            <label className="forminput" htmlFor="email" className='form__label'>
+                            <label htmlFor="email" className='form__label'>
                                 <span>Email<span className='required' >*</span></span>
                                 <input type="email" id="email" name="email" value={email} onChange={handleChange} />
                             </label>

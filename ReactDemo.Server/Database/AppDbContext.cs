@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using ReactDemo.Server.Models;
 
 namespace ReactDemo.Server.Database
@@ -12,7 +14,8 @@ namespace ReactDemo.Server.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.ConfigureWarnings(warnings =>
+                warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -153,6 +156,29 @@ namespace ReactDemo.Server.Database
                 new BookingRoom { Id = 7, BookingId =  6, RoomId = 13, CheckInDate = new DateOnly(2025, 9, 15), CheckOutDate = new DateOnly(2025, 9, 16), NumberAdults = 1, NumberChildren = 1 },
                 new BookingRoom { Id = 8, BookingId =  6, RoomId = 16, CheckInDate = new DateOnly(2025, 9, 16), CheckOutDate = new DateOnly(2025, 9, 20), NumberAdults = 1, NumberChildren = 1 }
                 );
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Id = "fdf41afb-4841-43b9-8642-b32179934a49", Name = "User", NormalizedName = "USER" },
+                new IdentityRole { Id = "0428efdd-bbf9-44fa-bba3-0a1873af0e56", Name = "Front Desk", NormalizedName = "FRONTDESK" },
+                new IdentityRole { Id = "b117d060-6194-4e16-8c49-f60bbf42ec3e", Name = "Administrator", NormalizedName = "ADMINISTRATOR" }
+                );
+            var hasher = new PasswordHasher<AppUser>();
+            builder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = "80c4e17f-70dd-4aaa-bbc0-ac3fd88682bf",
+                Email = "admin@admin.com",
+                NormalizedEmail = "ADMIN@ADMIN.COM",
+                NormalizedUserName = "ADMIN@ADMIN.COM",
+                UserName = "admin@admin.com",
+                PasswordHash = hasher.HashPassword(null, "P@ssword1"),
+                EmailConfirmed = true,
+                FirstName = "Borgo",
+                LastName = "Admin",
+            });
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "b117d060-6194-4e16-8c49-f60bbf42ec3e",
+                UserId = "80c4e17f-70dd-4aaa-bbc0-ac3fd88682bf"
+            });
         }
 
 

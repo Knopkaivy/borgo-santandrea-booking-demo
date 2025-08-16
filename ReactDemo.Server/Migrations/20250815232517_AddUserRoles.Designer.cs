@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReactDemo.Server.Database;
 
@@ -11,9 +12,11 @@ using ReactDemo.Server.Database;
 namespace ReactDemo.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250815232517_AddUserRoles")]
+    partial class AddUserRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -154,13 +157,6 @@ namespace ReactDemo.Server.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "80c4e17f-70dd-4aaa-bbc0-ac3fd88682bf",
-                            RoleId = "b117d060-6194-4e16-8c49-f60bbf42ec3e"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -193,6 +189,9 @@ namespace ReactDemo.Server.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateOnly>("DateOfBirth")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -253,26 +252,6 @@ namespace ReactDemo.Server.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "80c4e17f-70dd-4aaa-bbc0-ac3fd88682bf",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d980873-bba8-494d-bccd-9c382add5ce3",
-                            Email = "admin@admin.com",
-                            EmailConfirmed = true,
-                            FirstName = "Borgo",
-                            LastName = "Admin",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@ADMIN.COM",
-                            NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPZEaOw5bWUvUveioHkeHYmoJIP7PrcTBSx7vUtm81lUWd07XzOFnfmXuc3OLjBAiA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "29aa48e7-318c-4455-9979-1e2716517fc6",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@admin.com"
-                        });
                 });
 
             modelBuilder.Entity("ReactDemo.Server.Models.Booking", b =>

@@ -7,11 +7,15 @@ function Register() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (name === "firstName") setFirstName(value);
+        if (name === "lastName") setLastName(value);
         if (name === "email") setEmail(value);
         if (name === "password") setPassword(value);
         if (name === "confirmPassword") setConfirmPassword(value);
@@ -27,23 +31,24 @@ function Register() {
             setError("Passwords do not match.");
         } else {
             setError("");
-            fetch("/register", {
+            fetch("/users/register/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
                     email: email,
-                    password: password,
+                    passwordHash: password,
                 }),
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                    if (data.ok)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    } else {
                         setError("Successful register.");
-                    else
-                        setError("Error registering.");
+                    }
 
                 })
                 .catch((error) => {
@@ -62,6 +67,20 @@ function Register() {
 
                     {error && <p className="form__error">{error}</p>}
                     <form onSubmit={handleSubmit}>
+                        <div className='form__input-field'>
+                            <label htmlFor="firstName" className='form__label' >
+                                <span>First Name</span>
+                                <input type="text" id="firstName" name="firstName" value={firstName} onChange={handleChange} />
+                            </label>
+                            </div><div>
+                        </div>
+                        <div className='form__input-field'>
+                            <label htmlFor="lastName" className='form__label' >
+                                <span>Last Name</span>
+                                <input type="text" id="lastName" name="lastName" value={lastName} onChange={handleChange} />
+                            </label>
+                            </div><div>
+                        </div>
                         <div className='form__input-field'>
                             <label htmlFor="email" className='form__label' >
                                 <span>Email<span className='required' >*</span></span>
