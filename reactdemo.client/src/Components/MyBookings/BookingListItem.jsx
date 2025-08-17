@@ -1,5 +1,7 @@
 import { Link } from "react-router";
+import AuthorizeView from "../Authorize/AuthorizeView";
 import '../../Styles/MyBookings/BookingListItem.css';
+
 function BookingListItem({ booking, handleRefreshBookingList }) {
     const { bookingId, email, firstName, lastName } = booking;
 
@@ -33,8 +35,10 @@ function BookingListItem({ booking, handleRefreshBookingList }) {
           <div className='booking-list-item__subitem'>{firstName} {lastName}</div>
           <div className='booking-list-item__subitem booking-list-item__subitem--button-container'>
               <Link to={`/booking/detail/${booking.bookingId}`} className='button booking-list-item__button-link' >VIEW</Link>
-              <Link to={`/booking/edit/${booking.bookingId}`} className='button booking-list-item__button-link--blue-light' >EDIT</Link>
-              <button onClick={handleDeleteBooking} >DELETE</button>
+              <AuthorizeView>
+                  <Link to={`/booking/edit/${booking.bookingId}`} className='button booking-list-item__button-link--blue-light' >EDIT</Link>
+                  <button onClick={handleDeleteBooking} >DELETE</button>
+              </AuthorizeView>
           </div>
       </li>
   );

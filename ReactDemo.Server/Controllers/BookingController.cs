@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReactDemo.Server.Database;
 using ReactDemo.Server.Models;
@@ -10,33 +12,54 @@ namespace ReactDemo.Server.Controllers
     public class BookingController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private UserManager<AppUser> _userManager;
 
-        public BookingController(AppDbContext context)
+        public BookingController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         //GET booking/
+        [Authorize(Roles = "Administrator,User,FrontDesk")]
         [HttpGet()]
         public async Task<List<BookingViewModel>> Get()
         {
             List<BookingViewModel> bookingViewList = new List<BookingViewModel>();
-
-            List<Booking> bookings = await _context.Booking.ToListAsync();
-
-            foreach (Booking booking in bookings) {
-                var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
-                if (guest != null) { 
-                    bookingViewList.Add(new BookingViewModel
-                    {
-                        BookingId = booking.Id,
-                        GuestId = guest.Id,
-                        FirstName = guest.FirstName,
-                        LastName = guest.LastName,
-                        Email = guest.Email,
-                    });
+            AppUser currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            if(currentUser != null)
+            {
+                List<Booking> bookings = new List<Booking>();
+                var roles = await _userManager.GetRolesAsync(currentUser);
+                if (roles.Contains("Administrator") || roles.Contains("FrontDesk"))
+                {
+                    bookings = await _context.Booking.ToListAsync();
+                } else if (roles.Contains("User"))
+                {
+                    bookings = await ( from b in _context.Booking
+                                       join g in _context.Guest on b.GuestId equals g.Id
+                                       where g.Email == currentUser.Email
+                                       select b
+                        ).ToListAsync();
                 }
+
+                    foreach (Booking booking in bookings)
+                    {
+                        var guest = await _context.Guest.Where(g => g.Id == booking.GuestId).FirstOrDefaultAsync();
+                        if (guest != null)
+                        {
+                            bookingViewList.Add(new BookingViewModel
+                            {
+                                BookingId = booking.Id,
+                                GuestId = guest.Id,
+                                FirstName = guest.FirstName,
+                                LastName = guest.LastName,
+                                Email = guest.Email,
+                            });
+                        }
+                    }
             }
+
 
             return bookingViewList;
         }

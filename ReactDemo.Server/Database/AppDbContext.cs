@@ -158,7 +158,7 @@ namespace ReactDemo.Server.Database
                 );
             builder.Entity<IdentityRole>().HasData(
                 new IdentityRole { Id = "fdf41afb-4841-43b9-8642-b32179934a49", Name = "User", NormalizedName = "USER" },
-                new IdentityRole { Id = "0428efdd-bbf9-44fa-bba3-0a1873af0e56", Name = "Front Desk", NormalizedName = "FRONTDESK" },
+                new IdentityRole { Id = "0428efdd-bbf9-44fa-bba3-0a1873af0e56", Name = "FrontDesk", NormalizedName = "FRONTDESK" },
                 new IdentityRole { Id = "b117d060-6194-4e16-8c49-f60bbf42ec3e", Name = "Administrator", NormalizedName = "ADMINISTRATOR" }
                 );
             var hasher = new PasswordHasher<AppUser>();

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from "react-router";
+import AuthorizeView from '../Authorize/AuthorizeView';
 import BookingDetailItem from '../MyBookings/BookingDetailItem';
 import Navbar from '../Navbar/Navbar';
 import GuestInfo from '../MyBookings/GuestInfo';
 import '../../Styles/Pages/BookingDetail.css';
+
 function BookingDetail() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -87,9 +89,13 @@ function BookingDetail() {
                     <p >Including taxes and fees</p>
                 </div>
                 <div className="booking-detail__buttons-container">
-                    <Link to={`/booking/edit/${id}`} className='button booking-detail__button-link--blue' >EDIT</Link>
+                    <AuthorizeView>
+                        <Link to={`/booking/edit/${id}`} className='button booking-detail__button-link--blue' >EDIT</Link>
+                    </AuthorizeView>
                     <button onClick={() => navigate(-1)} className='booking-detail__button-link--blue-light' >GO BACK</button>
-                    <button onClick={handleDeleteBooking} >DELETE</button>
+                    <AuthorizeView>
+                        <button onClick={handleDeleteBooking} >DELETE</button>
+                    </AuthorizeView>
                 </div>
             </div>
      </>
