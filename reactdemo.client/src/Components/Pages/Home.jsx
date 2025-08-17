@@ -37,7 +37,7 @@ function Home() {
     }
 
     const postBooking = (postData) => {
-        fetch(`room/book/`, {
+        fetch(`booking/book/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
