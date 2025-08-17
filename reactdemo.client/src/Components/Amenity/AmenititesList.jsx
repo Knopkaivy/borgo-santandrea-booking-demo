@@ -7,7 +7,7 @@ import PersonIcon from '../Icons/PersonIcon';
 import ServicesIcon from '../Icons/ServicesIcon';
 import SwimIcon from '../Icons/SwimIcon';
 import WiFiIcon from '../Icons/WiFiIcon';
-import '../../Styles/Amenity/AmenitiesList.css';
+import '../../Styles/Components/Amenity/AmenitiesList.css';
 function AmenititesList() {
     const list = [
         {

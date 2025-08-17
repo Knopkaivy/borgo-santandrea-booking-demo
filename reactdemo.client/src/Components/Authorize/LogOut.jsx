@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import '../../Styles/Authorize/LogOut.css';
+import '../../Styles/Components/Authorize/LogOut.css';
 function LogOut() {
     const navigate = useNavigate();
 

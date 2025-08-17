@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AmenititesList from '../Amenity/AmenititesList';
-import BookingSection from '../Booking/BookingSection';
-import Cart from '../Cart/Cart';
-import Checkout from '../Checkout/Checkout';
-import Navbar from '../Navbar/Navbar';
-import Rooms from '../Room/Rooms';
-import '../../Styles/Pages/Home.css';
+import AmenititesList from '../Components/Amenity/AmenititesList';
+import BookingSection from '../Components/Booking/BookingSection';
+import Cart from '../Components/Cart/Cart';
+import Checkout from '../Components/Checkout/Checkout';
+import Navbar from '../Components/Navbar/Navbar';
+import Rooms from '../Components/Room/Rooms';
+import '../Styles/Pages/Home.css';
 function Home() {
     const today = new Date();
     const tomorrow = new Date(new Date().setDate(today.getDate() + 1));

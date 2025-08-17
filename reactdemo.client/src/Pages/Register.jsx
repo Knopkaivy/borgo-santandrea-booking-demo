@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router";
-import Navbar from "../Navbar/Navbar";
-import '../../Styles/Pages/Register.css';
+import Navbar from "../Components/Navbar/Navbar";
+import '../Styles/Pages/Register.css';
 
 function Register() {
     const navigate = useNavigate();

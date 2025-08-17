@@ -1,4 +1,5 @@
-import '../../Styles/MyBookings/BookingNotFound.css';
+import '../../Styles/Components/MyBookings/BookingNotFound.css';
+
 function BookingNotFound({ handleRefreshBookingList }) {
   return (
       <div className='booking-not-found' >

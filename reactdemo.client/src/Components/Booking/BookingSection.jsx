@@ -3,7 +3,7 @@ import CalendarContainer from './CalendarContainer';
 import Coupon from './Coupon';
 import DatePicker from './DatePicker';
 import GuestsPicker from './GuestsPicker';
-import '../../Styles/Booking/BookingSection.css';
+import '../../Styles/Components/Booking/BookingSection.css';
 
 function BookingSection({ startDate, endDate, maxDate, adults, children, handleDateChange, handleClickSearch, handleGuestsUpdate }) {
     const today = new Date();

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../Styles/MyBookings/FindBookingForm.css';
+import '../../Styles/Components/MyBookings/FindBookingForm.css';
 function FindBookingForm({ handleGetBooking }) {
 
     const [confirmationNumber, setConfirmationNumber] = useState();

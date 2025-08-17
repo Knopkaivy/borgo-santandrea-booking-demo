@@ -1,4 +1,4 @@
-import '../../Styles/Cart/CartItem.css';
+import '../../Styles/Components/Cart/CartItem.css';
 function CartItem({ cartItem, id, tax, handleRemoveRoom }) {
     const roomTotalString = cartItem.preTaxTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     const taxString = (cartItem.preTaxTotal * tax).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });

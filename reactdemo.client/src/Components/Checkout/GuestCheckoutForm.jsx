@@ -1,4 +1,4 @@
-import '../../Styles/Checkout/GuestCheckoutForm.css';
+import '../../Styles/Components/Checkout/GuestCheckoutForm.css';
 function GuestCheckoutForm({handleUpdateFirstName, handleUpdateLastName, handleUpdateEmail}) {
     return (
         <div className="guest-checkout">

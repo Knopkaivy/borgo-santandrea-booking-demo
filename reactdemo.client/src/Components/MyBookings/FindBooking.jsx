@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import '../../Styles/MyBookings/FindBooking.css';
 import Navbar from '../Navbar/Navbar';
 import FindBookingForm from './FindBookingForm';
 import FindBookingResult from './FindBookingResult';
+import '../../Styles/Components/MyBookings/FindBooking.css';
+
 function FindBooking() {
 
     const [bookings, setBookings] = useState([]);

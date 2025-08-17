@@ -1,4 +1,4 @@
-import '../../Styles/MyBookings/GuestInfo.css';
+import '../../Styles/Components/MyBookings/GuestInfo.css';
 function GuestInfo({first, last, email }) {
   return (
       <div className='guest-info' >

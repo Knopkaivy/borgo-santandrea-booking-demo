@@ -1,5 +1,5 @@
 import CartItem from './CartItem';
-import '../../Styles/Cart/Cart.css';
+import '../../Styles/Components/Cart/Cart.css';
 function Cart({ cartItems, cartTotal, tax, handleRemoveRoom, handleShowCheckOut }) {
   return (
       <div className='cart' >

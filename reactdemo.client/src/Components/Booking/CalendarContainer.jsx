@@ -1,8 +1,6 @@
 import Calendar from 'react-calendar';
-import '../../Styles/Booking/CalendarContainer.css';
+import '../../Styles/Components/Booking/CalendarContainer.css';
 import 'react-calendar/dist/Calendar.css';
-
-
 
 function CalendarContainer({ isExpanded, minDate, maxDate, startDate, endDate, handleDateChange, handleClickSearch, handleHideCalendar }) {
 

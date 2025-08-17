@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import AllBookings from './Components/Pages/AllBookings';
-import BookingDetail from './Components/Pages/BookingDetail';
-import BookingEdit from './Components/Pages/BookingEdit';
-import Home from './Components/Pages/Home';
+import AllBookings from './Pages/AllBookings';
+import BookingDetail from './Pages/BookingDetail';
+import BookingEdit from './Pages/BookingEdit';
+import Home from './Pages/Home';
 import FindBooking from './Components/MyBookings/FindBooking';
-import Login from './Components/Pages/Login';
-import Register from './Components/Pages/Register';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 import './Styles/App.css';
 
 function App() {

@@ -1,7 +1,7 @@
 import CardIcon from '../Icons/CardIcon';
 import CoffeeIcon from '../Icons/CoffeeIcon';
 import ImagesIcon from '../Icons/ImagesIcon';
-import '../../Styles/Room/Room.css';
+import '../../Styles/Components/Room/Room.css';
 
 const Room = ({ room, handleBookRoom, imgSrc }) => {
 

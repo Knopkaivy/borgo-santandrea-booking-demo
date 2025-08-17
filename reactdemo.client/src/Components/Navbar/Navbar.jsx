@@ -2,9 +2,10 @@ import LogoImage from '../../assets/Images/BorgoSALogo.webp';
 import LogOut from '../Authorize/LogOut';
 import NavLink from './NavLink';
 
-import '../../Styles/Navbar/Navbar.css';
 import AuthorizeView from '../Authorize/AuthorizeView';
 import UnauthorizeView from '../Authorize/UnauthorizeView';
+import '../../Styles/Components/Navbar/Navbar.css';
+
 function Navbar() {
   return (
       <div className='navbar' >

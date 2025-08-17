@@ -1,4 +1,5 @@
-import '../../Styles/MyBookings/BookingDetailItem.css';
+import '../../Styles/Components/MyBookings/BookingDetailItem.css';
+
 function BookingDetailItem({ id, item, isEdit, handleRemoveItem }) {
     const startDate = new Date(item.checkInDate);
     const endDate = new Date(item.checkOutDate);

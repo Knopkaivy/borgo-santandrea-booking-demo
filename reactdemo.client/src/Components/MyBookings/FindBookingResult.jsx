@@ -1,6 +1,6 @@
 import BookingFound from './BookingFound';
 import BookingNotFound from './BookingNotFound';
-import '../../Styles/MyBookings/FindBookingResult.css';
+import '../../Styles/Components/MyBookings/FindBookingResult.css';
 function FindBookingResult({ bookings, handleRefreshBookingList }) {
   return (
       <div className='find-booking-result'>

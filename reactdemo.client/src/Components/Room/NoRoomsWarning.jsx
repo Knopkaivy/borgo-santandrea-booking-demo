@@ -1,4 +1,5 @@
-import '../../Styles/Room/NoRoomsWarning.css';
+import '../../Styles/Components/Room/NoRoomsWarning.css';
+
 function NoRoomsWarning({ numberGuests }) {
     return (
       <div className='no-rooms-warning' >

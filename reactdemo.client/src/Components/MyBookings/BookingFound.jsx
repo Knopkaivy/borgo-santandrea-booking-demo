@@ -1,5 +1,6 @@
 import BookingListItem from './BookingListItem';
-import '../../Styles/MyBookings/BookingFound.css';
+import '../../Styles/Components/MyBookings/BookingFound.css';
+
 function BookingFound({ bookings, handleRefreshBookingList }) {
   return (
       <div className='booking-found'>

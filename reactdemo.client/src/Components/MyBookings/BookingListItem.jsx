@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import AuthorizeView from "../Authorize/AuthorizeView";
-import '../../Styles/MyBookings/BookingListItem.css';
+import '../../Styles/Components/MyBookings/BookingListItem.css';
 
 function BookingListItem({ booking, handleRefreshBookingList }) {
     const { bookingId, email, firstName, lastName } = booking;

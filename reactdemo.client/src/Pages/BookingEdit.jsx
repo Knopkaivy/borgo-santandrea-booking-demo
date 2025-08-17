@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router";
-import BookingDetailItem from '../MyBookings/BookingDetailItem';
-import Navbar from '../Navbar/Navbar';
-import GuestInfo from '../MyBookings/GuestInfo';
-import '../../Styles/Pages/BookingEdit.css';
+import BookingDetailItem from '../Components/MyBookings/BookingDetailItem';
+import Navbar from '../Components/Navbar/Navbar';
+import GuestInfo from '../Components/MyBookings/GuestInfo';
+import '../Styles/Pages/BookingEdit.css';
 function BookingEdit() {
     const navigate = useNavigate();
     const { id } = useParams();

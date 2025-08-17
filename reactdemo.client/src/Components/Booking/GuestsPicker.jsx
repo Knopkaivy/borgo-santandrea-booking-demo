@@ -3,7 +3,7 @@ import GuestsCounter from './GuestsCounter';
 import ChildAgeSelector from './ChildAgeSelector';
 import PersonIcon from '../Icons/PersonIcon';
 import CloseIcon from '../Icons/CloseIcon';
-import '../../Styles/Booking/GuestsPicker.css';
+import '../../Styles/Components/Booking/GuestsPicker.css';
 
 function GuestsPicker({ adults, children, handleGuestsUpdate }) {
     const [isActive, setIsActive] = useState(false);

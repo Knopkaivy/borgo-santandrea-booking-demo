@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MinusIcon from '../Icons/MinusIcon';
 import PlusIcon from '../Icons/PlusIcon';
-import '../../Styles/Booking/GuestsCounter.css';
+import '../../Styles/Components/Booking/GuestsCounter.css';
 
 function GuestsCounter({ type, count, maxNum, handleCounterUpdate }) {
     const title = type === 'adults' ? 'Adults (Ages 18 or above)' : 'Children (Ages 0-17)';

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import CartItem from '../Cart/CartItem';
 import GuestCheckoutForm from "./GuestCheckoutForm";
-import '../../Styles/Checkout/Checkout.css';
+import '../../Styles/Components/Checkout/Checkout.css';
+
 function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, confirmationNumber, handleRemoveRoom, isCheckOut, handleHideCheckOut, handlePostBooking }) {
 
     const [isConfirmation, setIsConfirmation] = useState(false);

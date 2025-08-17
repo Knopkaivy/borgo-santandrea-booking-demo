@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router";
-import Navbar from '../Navbar/Navbar';
-import '../../Styles/Pages/Login.css';
+import Navbar from '../Components/Navbar/Navbar';
+import '../Styles/Pages/Login.css';
 function Login() {
     // state variables for email and passwords
     const [email, setEmail] = useState("");

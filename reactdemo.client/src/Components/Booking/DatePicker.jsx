@@ -1,5 +1,5 @@
 import CalendarIcon from '../Icons/CalendarIcon';
-import '../../Styles/Booking/DatePicker.css';
+import '../../Styles/Components/Booking/DatePicker.css';
 
 function DatePicker({ date, type, handleShowCalendar }) {
     const title = type === 'check-in' ? 'Check-in' : 'Check-out';

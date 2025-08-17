@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import Navbar from '../Navbar/Navbar';
-import BookingFound from '../MyBookings/BookingFound';
-import AuthorizeView from '../Authorize/AuthorizeView';
+import Navbar from '../Components/Navbar/Navbar';
+import BookingFound from '../Components/MyBookings/BookingFound';
+import AuthorizeView from '../Components/Authorize/AuthorizeView';
 
-import '../../Styles/Pages/AllBookings.css';
+import '../Styles/Pages/AllBookings.css';
 function AllBookings() {
     const [bookings, setBookings] = useState([]);
 

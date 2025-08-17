@@ -1,5 +1,5 @@
 import ChevronDownIcon from "../Icons/ChevronDownIcon";
-import '../../Styles/Booking/Coupon.css';
+import '../../Styles/Components/Booking/Coupon.css';
 import { useState } from "react";
 
 function Coupon() {

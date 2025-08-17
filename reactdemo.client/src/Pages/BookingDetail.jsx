@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from "react-router";
-import AuthorizeView from '../Authorize/AuthorizeView';
-import BookingDetailItem from '../MyBookings/BookingDetailItem';
-import Navbar from '../Navbar/Navbar';
-import GuestInfo from '../MyBookings/GuestInfo';
-import '../../Styles/Pages/BookingDetail.css';
+import AuthorizeView from '../Components/Authorize/AuthorizeView';
+import BookingDetailItem from '../Components/MyBookings/BookingDetailItem';
+import Navbar from '../Components/Navbar/Navbar';
+import GuestInfo from '../Components/MyBookings/GuestInfo';
+import '../Styles/Pages/BookingDetail.css';
 
 function BookingDetail() {
     const navigate = useNavigate();
