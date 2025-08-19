@@ -21,8 +21,8 @@ function CartItem({ cartItem, id, tax, handleRemoveRoom }) {
           <p className="cart-item__description">{cartItem.numberNights} Night stay</p>
           <p className="cart-item__description">{cartItem.startDate.toDateString()} - {cartItem.endDate.toDateString()}</p>
           <p className="cart-item__description" >{cartItem.adults} Adults, {cartItem.children} Children</p>
-          <div className="cart-item__buttons-container" >
-              <button className="cart-item__button--transparent" onClick={handleClickRemove}  >Remove</button>
+          <div className="cart-item__button-container" >
+              <button className="button--transparent cart-item__button--transparent" onClick={handleClickRemove}  >Remove</button>
           </div>
       </div>
   );

@@ -52,7 +52,7 @@ const Room = ({ room, handleBookRoom, imgSrc }) => {
                         <p className="room__price" ><span>$</span>{Number.parseFloat(room.price).toFixed(2)}</p>
                         <p className="room__price-description" >Per Night</p>
                         <p className="room__price-description room__price-description--fees">Excluding taxes and fees</p>
-                        <button className="room__button" onClick={handleBookNowClick} >BOOK NOW</button>
+                        <button className="button--blue room__button" onClick={handleBookNowClick} >BOOK NOW</button>
                     </div>
                 </div>
             </div>

@@ -69,10 +69,10 @@ function Checkout({ cartItems, cartTotal, tax, isBookingSuccessful, confirmation
                       <p className="checkout__confirmation-thankyou" >At least one of the rooms that you trying to book is no longer available. Please refresh your search.</p>
                   </div>
               </div>
-                <div className='checkout__buttons-container' >
-                  <button className={`checkout__button--transparent ${isConfirmation ? 'hide' : ''}`} onClick={handleClickCancel} >Cancel</button>
-                  <button className={`checkout__button--blue ${isConfirmation ? 'hide' : ''}`} onClick={handleShowConfirmation} >PROCESS PAYMENT</button>
-                  <button className={`checkout__button--blue ${isConfirmation ? '' : 'hide'}`} onClick={handleCloseCheckOut} >CLOSE</button>
+              <div className='button__container checkout__button-container' >
+                  <button className={`button--transparent ${isConfirmation ? 'hide' : ''}`} onClick={handleClickCancel} >Cancel</button>
+                  <button className={`button--blue ${isConfirmation ? 'hide' : ''}`} onClick={handleShowConfirmation} >PROCESS PAYMENT</button>
+                  <button className={`button--blue ${isConfirmation ? '' : 'hide'}`} onClick={handleCloseCheckOut} >CLOSE</button>
                 </div>
           </div>
       </div>

@@ -53,9 +53,9 @@ function Coupon() {
                         </div>
                     </div>
                 </div>
-                <div className='coupon__button-container' >
-                    <button className="coupon__button--transparent" onClick={handleHideDetail} >Cancel</button>
-                    <button className="coupon__button--blue" onClick={handleApplyCode} >APPLY</button>
+                <div className='button__container coupon__button-container' >
+                    <button className="button--transparent" onClick={handleHideDetail} >Cancel</button>
+                    <button className="button--blue-light" onClick={handleApplyCode} >APPLY</button>
                 </div>
            </div>
       </div>

@@ -68,7 +68,9 @@ function GuestsPicker({ adults, children, handleGuestsUpdate }) {
               <GuestsCounter type='adults' count={adultsCounter} maxNum='19' handleCounterUpdate={handleCounterUpdate} />
               <GuestsCounter type='children' count={childrenCounter} maxNum='18' handleCounterUpdate={handleCounterUpdate} />
               {childAgeArray.map(i => <ChildAgeSelector key={i} index={i} />)}
-              <button className="guests-picker__button--done" onClick={handlePickerUpdate} >DONE</button>
+              <div className="button__container" >
+                <button className="button--blue" onClick={handlePickerUpdate} >DONE</button>
+              </div>
           </div>
       </div>
   );

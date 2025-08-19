@@ -14,7 +14,7 @@ function Cart({ cartItems, cartTotal, tax, handleRemoveRoom, handleShowCheckOut 
                   })}
               </div>
           </div>
-          <button className={`cart__button cart-button--checkout ${cartItems.length === 0 ? 'hide' : ''}`} onClick={handleShowCheckOut} >CHECKOUT</button>
+          <button className={`button--blue cart__button ${cartItems.length === 0 ? 'hide' : ''}`} onClick={handleShowCheckOut} >CHECKOUT</button>
       </div>
   );
 }

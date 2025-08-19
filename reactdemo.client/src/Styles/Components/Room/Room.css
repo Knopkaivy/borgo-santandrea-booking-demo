@@ -117,14 +117,6 @@
 }
 
 .room__button {
-    background-color: var(--color-lapis-lazuli);
-    border: var(--border-lapis-lazuli);
-    color: var(--color-white);
     margin-top: 1.6rem;
     width: 100%;
-}
-
-.room__button:hover {
-    background-color: var(--color-white);
-    color: var(--color-lapis-lazuli);
 }

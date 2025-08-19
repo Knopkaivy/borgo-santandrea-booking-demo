@@ -33,10 +33,10 @@ function BookingListItem({ booking, handleRefreshBookingList }) {
           <div className='booking-list-item__subitem'>{bookingId}</div>
           <div className='booking-list-item__subitem'>{email}</div>
           <div className='booking-list-item__subitem'>{firstName} {lastName}</div>
-          <div className='booking-list-item__subitem booking-list-item__subitem--button-container'>
-              <Link to={`/booking/detail/${booking.bookingId}`} className='button booking-list-item__button-link' >VIEW</Link>
+          <div className='booking-list-item__subitem button__container'>
+              <Link to={`/booking/detail/${booking.bookingId}`} className='button button-link button--blue' >VIEW</Link>
               <AuthorizeView>
-                  <Link to={`/booking/edit/${booking.bookingId}`} className='button booking-list-item__button-link--blue-light' >EDIT</Link>
+                  <Link to={`/booking/edit/${booking.bookingId}`} className='button button-link button--blue-light' >EDIT</Link>
                   <button onClick={handleDeleteBooking} >DELETE</button>
               </AuthorizeView>
           </div>

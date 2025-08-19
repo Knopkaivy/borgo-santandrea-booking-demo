@@ -90,9 +90,9 @@ function BookingDetail() {
                 </div>
                 <div className="booking-detail__buttons-container">
                     <AuthorizeView>
-                        <Link to={`/booking/edit/${id}`} className='button booking-detail__button-link--blue' >EDIT</Link>
+                        <Link to={`/booking/edit/${id}`} className='button button-link button--blue' >EDIT</Link>
                     </AuthorizeView>
-                    <button onClick={() => navigate(-1)} className='booking-detail__button-link--blue-light' >GO BACK</button>
+                    <button onClick={() => navigate(-1)} className='button--blue-light' >GO BACK</button>
                     <AuthorizeView>
                         <button onClick={handleDeleteBooking} >DELETE</button>
                     </AuthorizeView>

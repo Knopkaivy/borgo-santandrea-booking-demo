@@ -31,8 +31,8 @@ function FindBookingForm({ handleGetBooking }) {
                   <input id='find-booking-confirmation-email' type='email' required value={confirmationEmail} onChange={(e) => setConfirmationEmail(e.target.value)} />
                   </label>
               </div>
-              <div className='find-booking-form__button-container'>
-              <input type='submit' className='button find-booking-form__button' value='SEARCH' />
+          <div className='button__container find-booking-form__button-container'>
+              <input type='submit' className='button button--blue' value='SEARCH' />
               </div>
           <div>
               <p className='bold'>Don't know your itinerary or confirmation number?</p>

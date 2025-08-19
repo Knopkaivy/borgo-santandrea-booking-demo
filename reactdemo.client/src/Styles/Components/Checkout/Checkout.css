@@ -57,39 +57,6 @@
     font-weight: 700;
 }
 
-.checkout__buttons-container {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
-}
-
-.checkout__button--blue {
-    background-color: var(--color-lapis-lazuli);
-    border: var(--border-lapis-lazuli);
-    color: var(--color-white);
-    margin-top: 1.6rem;
-    width: auto;
-}
-
-.checkout__button--blue:hover,
-.checkout__button--blue:focus,
-.checkout__button--blue:active {
-    background-color: var(--color-white);
-    color: var(--color-lapis-lazuli);
-}
-
-.checkout__button--transparent {
-    background-color: transparent;
-    border: none;
-    color: var(--color-lapis-lazuli);
-    margin-top: 1.6rem;
-    width: auto;
-    font-weight: 700;
-}
-
-.checkout__button--transparent:hover,
-.checkout__button--transparent:focus,
-.checkout__button--transparent:active {
-    text-decoration: underline;
+.checkout__button-container {
+    padding-top: 1.6rem
 }

@@ -43,25 +43,4 @@
 
 .cart__button{
     width: 100%;
-    color: var(--color-white);
-    padding-top: 1.6rem;
-    padding-bottom: 1.6rem;
-}
-
-.cart-button--add-room {
-    background-color: var(--color-moonstone);
-    border: 1px solid var(--color-moonstone);
-}
-
-.cart-button--checkout {
-    background-color: var(--color-lapis-lazuli);
-    border: var(--border-lapis-lazuli);
-}
-
-.cart__button:hover,
-.cart__button:focus,
-.cart__button:active {
-    background-color: var(--color-white);
-    color: var(--color-lapis-lazuli);
-    border: var(--border-lapis-lazuli);
 }

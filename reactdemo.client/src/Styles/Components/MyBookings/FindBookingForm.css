@@ -62,20 +62,5 @@
 }
 
 .find-booking-form__button-container {
-    border-bottom: var(--border-grey-spanish);
-    padding-bottom: 1.6rem;
-    text-align: end;
-}
-
-.find-booking-form__button {
-    background-color: var(--color-lapis-lazuli);
-    border: var(--border-lapis-lazuli);
-    color: var(--color-white);
-    margin-top: 1.6rem;
-    width: auto;
-}
-
-.find-booking-form__button:hover {
-    background-color: var(--color-white);
-    color: var(--color-lapis-lazuli);
+    padding: 1.6rem 0;
 }

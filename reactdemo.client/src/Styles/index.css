@@ -61,14 +61,15 @@ h1 {
 }
 
 button, .button {
-  border-radius: 0;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all .2s ease;
+    border-radius: 0;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .2s ease;
+    width: auto;
 }
 
 a:focus,
@@ -78,15 +79,24 @@ button:focus,
     outline-offset: 4px;
 }
 
+.button__container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
 .button-link{
     text-decoration: none;
     color: inherit;
 }
 
-.button__container{
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
+.button-link:hover,
+.button-link:focus,
+.button-link:active {
+    background-color: var(--color-white);
+    border-color: var(--color-lapis-lazuli);
+    color: var(--color-lapis-lazuli);
 }
 
 .button--blue {
@@ -119,6 +129,18 @@ button:focus,
     color: var(--color-lapis-lazuli);
 }
 
+.button--transparent {
+    background-color: transparent;
+    border: none;
+    color: var(--color-lapis-lazuli);
+    font-weight: 700;
+}
+
+.button--transparent:hover,
+.button--transparent:focus,
+.button--transparent:active {
+    text-decoration: underline;
+}
 
 p {
     margin: 0;

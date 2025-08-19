@@ -117,9 +117,9 @@ function BookingEdit() {
                     </div>
                     <p >Including taxes and fees</p>
                 </div>
-                <div className="booking-edit__buttons-container">
-                    <button onClick={handleUpdateBooking} className='booking-edit__button--blue' >SAVE</button>
-                    <button onClick={() => navigate(-1)} className='booking-edit__button-link--blue-light' >GO BACK</button>
+                <div className="button__container">
+                    <button onClick={handleUpdateBooking} className='button--blue' >SAVE</button>
+                    <button onClick={() => navigate(-1)} className='button--blue-light' >GO BACK</button>
                     <button onClick={handleDeleteBooking} >DELETE</button>
                 </div>
             </div>

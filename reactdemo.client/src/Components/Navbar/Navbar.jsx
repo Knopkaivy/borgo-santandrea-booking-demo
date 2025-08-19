@@ -10,9 +10,9 @@ function Navbar() {
   return (
       <div className='navbar' >
           <nav className='navbar__content' >
-              <div className='navbar__logo-container' >
+              <a href="https://borgo-santandrea-home-demo.web.app/" target="_blank" rel="noopener noreferrer"  className='navbar__logo-container' >
                   <img src={LogoImage} />
-              </div>
+              </a>
               <ul className='navbar__link-list'>
                   <NavLink hrefVal='/' text='Add a room' />
                   <AuthorizeView>

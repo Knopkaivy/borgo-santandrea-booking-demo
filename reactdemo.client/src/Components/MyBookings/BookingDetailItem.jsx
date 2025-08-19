@@ -20,8 +20,8 @@ function BookingDetailItem({ id, item, isEdit, handleRemoveItem }) {
           <p className="booking-detail-item__description">{numNights} Night stay</p>
           <p className="booking-detail-item__description">{startDate.toDateString()} - {endDate.toDateString()}</p>
           <p className="booking-detail-item__description" >{item.numberAdults} Adults, {item.numberChildren} Children</p>
-          <div className={`booking-detail-item__buttons-container ${isEdit ? '' : 'hide'}`} >
-              <button className='booking-detail-item__button--transparent' onClick={() => handleRemoveItem(id) } >Remove</button>
+          <div className={`button__container ${isEdit ? '' : 'hide'}`} >
+              <button className='button--transparent booking-detail-item__button--transparent' onClick={() => handleRemoveItem(id) } >Remove</button>
           </div>
       </div>
   );

@@ -77,39 +77,5 @@
 }
 
 .coupon__button-container{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
-
-.coupon__button--blue {
-    background-color: var(--color-moonstone);
-    border: var(--border-lapis-lazuli);
-    border-color: var(--color-moonstone);
-    color: var(--color-white);
-    margin-top: 1.6rem;
-    width: auto;
-}
-
-.coupon__button--blue:hover,
-.coupon__button--blue:focus,
-.coupon__button--blue:active {
-    background-color: var(--color-white);
-    color: var(--color-lapis-lazuli);
-    border-color: var(--color-lapis-lazuli);
-}
-
-.coupon__button--transparent {
-    background-color: transparent;
-    border: none;
-    color: var(--color-lapis-lazuli);
-    margin-top: 1.6rem;
-    width: auto;
-    font-weight: 700;
-}
-
-.coupon__button--transparent:hover,
-.coupon__button--transparent:focus,
-.coupon__button--transparent:active {
-    text-decoration: underline;
+    padding-top: 1.6rem;
 }
